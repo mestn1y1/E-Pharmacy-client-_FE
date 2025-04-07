@@ -1,5 +1,8 @@
 @import "modern-normalize/modern-normalize.css";
 
+#root {
+  position: relative;
+}
 :root {
   --borderAnimation: border-color 0.3s ease-in-out;
   --butonAnimation: background-color 0.3s ease-in-out;

@@ -1,1 +1,34 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.bunner {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #59b17a;
+  background-image: image-set(
+    url(/images/caps-mob.png) 1x,
+    url(/images/caps-mob-x2.png) 2x
+  );
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 812px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 100%;
+  color: #fff;
+  width: 293px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: #fff;
+  width: 156px;
+  align-self: flex-end;
+}

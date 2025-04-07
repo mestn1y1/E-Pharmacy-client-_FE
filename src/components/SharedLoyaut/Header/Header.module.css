@@ -1,1 +1,17 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  padding: 25px 20px;
+  width: 100%;
+}
+.burgerIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.burgerBtn {
+  width: 32px;
+  height: 32px;
+}
