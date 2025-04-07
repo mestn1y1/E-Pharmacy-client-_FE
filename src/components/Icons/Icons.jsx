@@ -1,10 +1,9 @@
+// import icons from "/images/icons.svg";
 
-import css from "./Icons.module.css"; export default function
-
-Icons
-() { return (
-<div className="{css.container}">
-  Icons
-  Component
-</div>
-); };
+export const Icons = ({ iconName, className, style }) => {
+  return (
+    <svg className={className} style={style} aria-hidden="true">
+      {/* <use href={`${icons}#icon-${iconName}`} /> */}
+    </svg>
+  );
+};

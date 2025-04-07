@@ -1,10 +1,15 @@
+import css from "./Button.module.css";
+import classNames from "classnames";
 
-import css from "./Button.module.css"; export default function
-
-Button
-() { return (
-<div className="{css.container}">
-  Button
-  Component
-</div>
-); };
+export const Button = ({ text, onClick, className, type, children }) => {
+  return (
+    <button
+      className={classNames(css.btn, className)}
+      onClick={onClick}
+      type={type}
+    >
+      {text}
+      {children}
+    </button>
+  );
+};
