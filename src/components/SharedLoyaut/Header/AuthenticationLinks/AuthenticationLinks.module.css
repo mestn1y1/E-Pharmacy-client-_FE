@@ -1,0 +1,30 @@
+.authList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+.listItem {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: #f1f1f1;
+  text-decoration: underline;
+}
+
+.listItem:first-child {
+  border: 1px solid rgba(241, 241, 241, 0.5);
+  border-radius: 60px;
+  padding: 13px 32px;
+  width: 119px;
+  height: 40px;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .authList {
+    display: flex;
+    flex-direction: row;
+  }
+}
