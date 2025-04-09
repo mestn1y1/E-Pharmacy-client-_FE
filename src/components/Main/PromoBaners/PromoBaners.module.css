@@ -1,0 +1,111 @@
+.banersList {
+  margin-top: 40px;
+  margin-bottom: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.banersItem {
+  border: 1.15px solid #f1f1f1;
+  border-radius: 27px;
+  padding: 14px 18px;
+  width: 100%;
+  height: 126px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.flexWrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.flexWrapSecond {
+  display: flex;
+  width: 140px;
+  justify-content: space-between;
+}
+
+.bunerNumber {
+  width: 54px;
+  height: 54px;
+  border-radius: 100%;
+  background-color: #e7f1ed;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #59b17a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bunerTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #252539;
+}
+
+.bunerPercent {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 140%;
+  color: #252539;
+}
+
+.bunerBtn {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 140%;
+  color: #93939a;
+  align-self: flex-end;
+}
+
+@media screen and (min-width: 375px) {
+  .banersItem {
+    width: 335px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .banersList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .banersItem {
+    height: 168px;
+    width: 322px;
+  }
+  .bunerNumber {
+    width: 74px;
+    height: 74px;
+    font-size: 28px;
+  }
+  .bunerTitle {
+    font-size: 20px;
+  }
+  .bunerPercent {
+    font-size: 36px;
+  }
+  .flexWrapSecond {
+    width: 180px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .banersList {
+    padding-left: 210px;
+    padding-right: 210px;
+    flex-wrap: nowrap;
+  }
+}

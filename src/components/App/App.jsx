@@ -6,6 +6,7 @@ import { RestrictedRoute } from "../RestrictedRoute/RestrictedRoute";
 import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import { refreshUser } from "../../redux/auth/operations";
+import { Navigate } from "react-router";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const CartPage = lazy(() => import("../../pages/CartPage/CartPage"));
@@ -34,7 +35,7 @@ export default function App() {
       <Suspense fallback={<p>Loading.....</p>}>
         <Routes>
           <Route path="/" element={<SharedLoyaut />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<Navigate to="/home" />} />
             <Route path="home" element={<HomePage />} />
             <Route path="product" element={<ProductPage />} />
             <Route path="medicine-store" element={<MedicineStorePage />} />

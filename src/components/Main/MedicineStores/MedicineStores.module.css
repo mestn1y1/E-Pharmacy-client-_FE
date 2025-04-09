@@ -1,0 +1,23 @@
+.medicineStoreSection {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  text-align: center;
+  color: #1d1e21;
+  margin: 0 auto;
+  margin-bottom: 14px;
+  width: 290px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  color: #93939a;
+  margin-bottom: 40px;
+}
