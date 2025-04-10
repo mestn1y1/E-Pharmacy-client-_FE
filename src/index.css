@@ -2,6 +2,8 @@
 
 #root {
   position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 :root {
   --borderAnimation: border-color 0.3s ease-in-out;

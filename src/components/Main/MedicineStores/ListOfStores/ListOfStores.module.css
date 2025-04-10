@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
 .item {
@@ -19,5 +20,26 @@
   .item {
     width: 335px;
     padding: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    column-gap: 16px;
+    row-gap: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1390px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .list {
+    column-gap: 36px;
+    row-gap: 38px;
+  }
+  .item {
+    width: 392px;
   }
 }

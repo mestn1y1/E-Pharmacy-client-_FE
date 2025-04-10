@@ -25,11 +25,11 @@ export default function ItemOfStores({ item }) {
       <div className={css.addressBlock}>
         <Icons iconName="map" className={css.icon} />
         <div>
-          <p>{address}</p>
-          <p>{city}</p>
+          <p className={css.text}>{address}</p>
+          <p className={css.text}>{city}</p>
         </div>
       </div>
-      <p className={css.phoneNumber}>
+      <p className={css.textNumber}>
         <Icons iconName="phone" className={css.icon} /> {phone}
       </p>
     </>

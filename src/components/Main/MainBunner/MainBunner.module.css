@@ -53,3 +53,12 @@
     margin-right: 92px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .bunner {
+    align-items: center;
+  }
+  .description {
+    margin-right: 450px;
+  }
+}

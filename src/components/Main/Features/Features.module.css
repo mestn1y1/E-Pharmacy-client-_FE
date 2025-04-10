@@ -1,0 +1,69 @@
+.marqueeWrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.list {
+  margin-top: 40px;
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scroll-left 15s linear infinite alternate;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(calc(-68%));
+  }
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #1d1e21;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    gap: 32px;
+    animation: scroll-left 10s linear infinite alternate;
+  }
+  .text {
+    font-size: 16px;
+  }
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-26%));
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  .list {
+    width: 100%;
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
