@@ -22,6 +22,16 @@ export default function ItemOfStores({ item }) {
           </p>
         </div>
       </div>
+      <div className={css.addressBlock}>
+        <Icons iconName="map" className={css.icon} />
+        <div>
+          <p>{address}</p>
+          <p>{city}</p>
+        </div>
+      </div>
+      <p className={css.phoneNumber}>
+        <Icons iconName="phone" className={css.icon} /> {phone}
+      </p>
     </>
   );
 }
