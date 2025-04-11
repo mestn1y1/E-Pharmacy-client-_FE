@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../../../redux/auth/operations.js";
+import { Button } from "../../Button/Button.jsx";
+import { Link } from "react-router";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Невірний email").required("Обов'язкове поле"),
@@ -16,14 +18,7 @@ export default function LoginForm() {
   const { isLoading, error } = useSelector((state) => state.auth);
 
   const onSubmit = (values) => {
-    dispatch(logIn(values))
-      .unwrap()
-      .then(() => {
-        alert("Login Success");
-      })
-      .catch((error) => {
-        alert(`Помилка реєстрації: ${error}`);
-      });
+    dispatch(logIn(values)).unwrap();
   };
 
   return (
@@ -32,24 +27,21 @@ export default function LoginForm() {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <Form>
+      <Form className={css.form}>
         <div>
-          <label htmlFor="email">Email</label>
-          <Field type="email" name="email" />
+          <Field type="email" name="email" className={css.input} />
           <ErrorMessage name="email" component="div" />
         </div>
 
         <div>
-          <label htmlFor="password">Пароль</label>
-          <Field type="password" name="password" />
+          <Field type="password" name="password" className={css.input} />
           <ErrorMessage name="password" component="div" />
         </div>
 
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Завантаження..." : "Відправити"}
-        </button>
-
-        {error && <div>{error}</div>}
+        <Button text="Log in" type="submit" className={css.btn} />
+        <Link to="/register" className={css.link}>
+          Don&apos;t have an account?
+        </Link>
       </Form>
     </Formik>
   );

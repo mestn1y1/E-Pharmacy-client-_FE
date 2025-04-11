@@ -3,64 +3,80 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../../redux/auth/operations.js";
-import { selectUser } from "../../../redux/auth/selectors.js";
+import { Button } from "../../Button/Button.jsx";
+import { Link } from "react-router";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, "Ім'я має містити щонайменше 2 символи")
-    .max(50, "Ім'я не може бути довшим за 50 символів")
-    .required("Обов'язкове поле"),
-  email: Yup.string().email("Невірний email").required("Обов'язкове поле"),
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name cannot exceed 50 characters")
+    .required("This field is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("This field is required"),
   password: Yup.string()
-    .min(8, "Пароль має містити щонайменше 8 символів")
-    .required("Обов'язкове поле"),
+    .min(8, "Password must be at least 8 characters")
+    .required("This field is required"),
 });
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
-  const { isLoading, error } = useSelector((state) => state.auth);
 
   const onSubmit = (values) => {
-    dispatch(register(values))
-      .unwrap()
-      .then(() => {
-        alert("Реєстрація успішна!");
-      })
-      .catch((error) => {
-        alert(`Помилка реєстрації: ${error}`);
-      });
+    dispatch(register(values)).unwrap();
   };
 
   return (
     <Formik
-      initialValues={{ name: "", email: "", password: "" }}
+      initialValues={{ name: "", email: "", password: "", phone: "" }}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <Form>
+      <Form className={css.form}>
         <div>
-          <label htmlFor="name">Name</label>
-          <Field type="text" name="name" />
+          <Field
+            type="text"
+            name="name"
+            placeholder="User name"
+            className={css.input}
+          />
           <ErrorMessage name="name" component="div" />
         </div>
 
         <div>
-          <label htmlFor="email">Email</label>
-          <Field type="email" name="email" />
+          <Field
+            type="email"
+            name="email"
+            placeholder="Email address"
+            className={css.input}
+          />
           <ErrorMessage name="email" component="div" />
         </div>
 
         <div>
-          <label htmlFor="password">Пароль</label>
-          <Field type="password" name="password" />
+          <Field
+            type="text"
+            name="phone"
+            placeholder="Phone number"
+            className={css.input}
+          />
+          <ErrorMessage name="phone" component="div" />
+        </div>
+        <div>
+          <Field
+            type="password"
+            name="password"
+            placeholder="Password"
+            className={css.input}
+          />
           <ErrorMessage name="password" component="div" />
         </div>
-
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Завантаження..." : "Відправити"}
-        </button>
-
-        {error && <div>{error}</div>}
+        <div className={css.btnWrap}>
+          <Button text="Register" className={css.btn} type="submit" />
+          <Link to="/login" className={css.link}>
+            Already have an account?
+          </Link>
+        </div>
       </Form>
     </Formik>
   );

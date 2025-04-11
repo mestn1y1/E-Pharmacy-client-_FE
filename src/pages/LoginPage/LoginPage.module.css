@@ -1,1 +1,112 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.loginPage {
+  padding: 25px 20px;
+  background: #f7f8fa;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.logoText {
+  color: #1d1e21;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 121%;
+  color: #1d1e21;
+  width: 280px;
+}
+.title span {
+  color: #59b17a;
+}
+.titleWrap {
+  position: relative;
+  margin-top: 106px;
+}
+
+.image {
+  width: 95px;
+  height: 95px;
+  position: absolute;
+  top: -60px;
+  right: 0;
+}
+
+/* Decoration bottom */
+.decoration {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  width: 200px;
+  right: -66px;
+  bottom: -10px;
+  transform: rotate(20deg);
+}
+
+.decorationElement {
+  display: block;
+  width: 166px;
+  height: 35px;
+  background: rgba(89, 177, 122, 0.08);
+  border-radius: 20px 0 0 20px;
+}
+
+.decorationElement:first-child {
+  margin-left: 40px;
+}
+.decorationElement:nth-child(3) {
+  margin-left: 24px;
+}
+
+@media screen and (min-width: 375px) {
+  .title {
+    font-size: 28px;
+    width: 300px;
+  }
+  .image {
+    right: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .loginPage {
+    padding: 32px 28px;
+  }
+  .titleWrap {
+    margin-top: 168px;
+  }
+  .title {
+    font-size: 54px;
+    width: 614px;
+  }
+  .image {
+    width: 179px;
+    height: 175px;
+    right: 140px;
+    top: -100px;
+  }
+  .decoration {
+    right: 20px;
+    bottom: 0px;
+    gap: 16px;
+  }
+  .decorationElement {
+    width: 336px;
+    height: 72px;
+    border-radius: 60px 0 0 60px;
+  }
+  .decorationElement:first-child {
+    margin-left: 84px;
+  }
+  .decorationElement:nth-child(3) {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loginPage {
+    padding: 100px 28px;
+  }
+}

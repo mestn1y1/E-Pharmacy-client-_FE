@@ -1,1 +1,10 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.btn {
+  border-radius: 60px;
+  padding: 14px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #fff;
+  background: #59b17a;
+}
