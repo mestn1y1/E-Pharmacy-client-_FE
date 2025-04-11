@@ -25,5 +25,11 @@
 }
 
 .link:hover {
-  border-color: transparent;
+  border: 1px solid rgba(247, 248, 250, 0.5);
+}
+
+@media screen and (min-width: 1280px) {
+  .socialList {
+    margin-top: 0;
+  }
 }
