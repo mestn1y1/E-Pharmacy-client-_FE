@@ -1,1 +1,10 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+}
+.link {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 129%;
+  color: #f7f8fa;
+}

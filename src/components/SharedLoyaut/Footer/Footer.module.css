@@ -11,3 +11,28 @@
   line-height: 129%;
   color: #f7f8fa;
 }
+
+.navigationList {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+}
+.link {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 129%;
+  color: #f7f8fa;
+}
+
+.activeLink {
+  text-decoration: underline;
+}
+
+.horizontLine {
+  margin-top: 40px;
+  border-color: rgba(247, 248, 250, 0.3);
+}
+.footerBottomWrap {
+  display: flex;
+  flex-wrap: wrap;
+}

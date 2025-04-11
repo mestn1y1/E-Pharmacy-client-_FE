@@ -2,7 +2,6 @@ import css from "./ItemOfStores.module.css";
 import { Icons } from "../../../Icons/Icons";
 export default function ItemOfStores({ item }) {
   const { address, city, name, phone, rating, status } = item;
-  console.log(item);
   return (
     <>
       <div className={css.decoration}>
