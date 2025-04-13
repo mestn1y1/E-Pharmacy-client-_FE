@@ -58,6 +58,9 @@
     margin-top: 178px;
   }
   .input {
-    width: 270px;
+    width: 240px;
+  }
+  .btn {
+    width: 260px;
   }
 }
