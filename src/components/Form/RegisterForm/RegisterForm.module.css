@@ -52,3 +52,12 @@
     width: 280px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .form {
+    margin-top: 178px;
+  }
+  .input {
+    width: 270px;
+  }
+}

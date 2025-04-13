@@ -107,6 +107,20 @@
 
 @media screen and (min-width: 1280px) {
   .loginPage {
-    padding: 100px 28px;
+    padding: 28px 100px;
+    height: 100vh;
+  }
+  .contentWrap {
+    display: flex;
+    align-items: center;
+    gap: 170px;
+    margin-top: 80px;
+  }
+  .image {
+    right: 20px;
+    top: -100px;
+  }
+  .title {
+    width: 590px;
   }
 }

@@ -107,6 +107,21 @@
 
 @media screen and (min-width: 1280px) {
   .registerPage {
-    padding: 100px 28px;
+    padding: 28px 100px;
+    height: 100vh;
+  }
+  .contentWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 80px;
+  }
+  .image {
+    right: 20px;
+    top: -100px;
+  }
+  .title {
+    width: 590px;
   }
 }
