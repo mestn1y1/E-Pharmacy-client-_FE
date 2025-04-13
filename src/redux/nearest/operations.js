@@ -9,7 +9,7 @@ export const fetchNearest = createAsyncThunk("nearest", async (_, thunkAPI) => {
     return res.data.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(
-      error.response?.data?.message || "Unable to fetch user info"
+      error.response?.data?.message || "Unable to fetch nearest"
     );
   }
 });

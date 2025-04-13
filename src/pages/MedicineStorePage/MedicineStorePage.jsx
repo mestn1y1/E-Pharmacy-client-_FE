@@ -1,10 +1,24 @@
+import { useDispatch } from "react-redux";
+import css from "./MedicineStorePage.module.css";
+import { useStore } from "../../hooks/useStore";
+import Loader from "../../components/Loader/Loader";
+import MedicineStoresList from "../../components/MedicineStore/MedicineStoresList";
+import { useEffect } from "react";
+import { fetchStores } from "../../redux/stores/operations";
+export default function MedicineStorePage() {
+  const { isLoading, stores } = useStore();
+  const dispatch = useDispatch();
 
-import css from "./MedicineStorePage.module.css"; export default function
+  useEffect(() => {
+    dispatch(fetchStores());
+  }, [dispatch]);
 
-MedicineStorePage
-() { return (
-<div className="{css.container}">
-  MedicineStorePage
-  Component
-</div>
-); };
+  console.log(stores);
+
+  return (
+    <section className={css.medicineStore}>
+      <h1>Medicine store</h1>
+      {isLoading ? <Loader /> : <MedicineStoresList items={stores} />}
+    </section>
+  );
+}

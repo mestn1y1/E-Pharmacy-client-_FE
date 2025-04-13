@@ -1,0 +1,45 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.item {
+  border: 1.15px solid #f1f1f1;
+  border-radius: 27px;
+  padding: 24px;
+  width: 100%;
+  height: 202px;
+  background: #e7f1ed;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 375px) {
+  .item {
+    width: 335px;
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    column-gap: 16px;
+    row-gap: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1390px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .list {
+    column-gap: 36px;
+    row-gap: 38px;
+  }
+  .item {
+    width: 392px;
+  }
+}
