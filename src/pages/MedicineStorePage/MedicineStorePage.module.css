@@ -1,3 +1,11 @@
 .medicineStore {
-  padding-top: 120px;
+  padding: 120px 20px;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  color: #1d1e21;
 }

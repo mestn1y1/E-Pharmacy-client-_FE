@@ -1,8 +1,22 @@
+import { Link } from "react-router";
 import { Icons } from "../../Icons/Icons";
 import css from "./MedicineStoreItem.module.css";
+import { useAuth } from "../../../hooks/useAuth";
+import { useState } from "react";
+import { ModalWrap } from "../../Modals/ModalWrap/ModalWrap";
+import AuthModal from "../../Modals/AuthModal/AuthModal";
 
 export default function MedicineStoreItem({ store }) {
   const { address, city, name, phone, rating, status } = store;
+  const { isLoggedIn } = useAuth();
+  const [showModal, setShowModal] = useState(false);
+
+  const handleLinkClick = (e) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      setShowModal(true);
+    }
+  };
   return (
     <>
       <div className={css.decoration}>
@@ -12,15 +26,6 @@ export default function MedicineStoreItem({ store }) {
       </div>
       <div className={css.headerItem}>
         <h3 className={css.itemName}>{name}</h3>
-        <div className={css.infoBlock}>
-          <p className={css.ratingBlock}>
-            <Icons iconName="star" className={css.star} />
-            {rating}
-          </p>
-          <p className={status === "Open" ? css.statusOpen : css.statusClosed}>
-            {status}
-          </p>
-        </div>
       </div>
       <div className={css.addressBlock}>
         <Icons iconName="map" className={css.icon} />
@@ -32,6 +37,21 @@ export default function MedicineStoreItem({ store }) {
       <p className={css.textNumber}>
         <Icons iconName="phone" className={css.icon} /> {phone}
       </p>
+      <div className={css.infoBlock}>
+        <Link className={css.link} to="/medicine" onClick={handleLinkClick}>
+          Visit store
+        </Link>
+        <p className={css.ratingBlock}>
+          <Icons iconName="star" className={css.star} />
+          {rating}
+        </p>
+        <p className={status === "Open" ? css.statusOpen : css.statusClosed}>
+          {status}
+        </p>
+      </div>
+      <ModalWrap isOpen={showModal} handleClose={() => setShowModal(false)}>
+        <AuthModal onClose={() => setShowModal(false)} />
+      </ModalWrap>
     </>
   );
 }

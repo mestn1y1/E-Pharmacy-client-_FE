@@ -14,7 +14,6 @@ export default function AuthenticationLinks({ onLinkClick }) {
 
   const handleLogOut = () => {
     dispatch(logOut());
-    onLinkClick();
   };
 
   return (

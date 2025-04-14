@@ -13,11 +13,9 @@ export default function MedicineStorePage() {
     dispatch(fetchStores());
   }, [dispatch]);
 
-  console.log(stores);
-
   return (
     <section className={css.medicineStore}>
-      <h1>Medicine store</h1>
+      <h1 className={css.title}>Medicine store</h1>
       {isLoading ? <Loader /> : <MedicineStoresList items={stores} />}
     </section>
   );
