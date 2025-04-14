@@ -1,0 +1,68 @@
+.modal {
+  border-radius: 20px;
+  padding: 40px 32px;
+  position: relative;
+  background: #fff;
+  width: 280px;
+  z-index: 2100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  text-align: center;
+  color: #1d1e21;
+  margin-bottom: 14px;
+}
+
+.dexcription {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  text-align: center;
+  color: #6a6a6f;
+}
+.iconClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  stroke: #1d1e21;
+}
+
+.modal .button {
+  margin-top: 25px;
+}
+
+@media screen and (min-width: 375px) {
+  .modal {
+    width: 344px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 464px;
+    padding: 50px 70px;
+  }
+  .modal .form {
+    margin-top: 25px;
+    flex-direction: column;
+    width: 323px;
+  }
+  .modal .form .input {
+    width: 100%;
+  }
+  .modal .button {
+    width: 100%;
+  }
+  .iconClose {
+    width: 24px;
+    height: 24px;
+  }
+}

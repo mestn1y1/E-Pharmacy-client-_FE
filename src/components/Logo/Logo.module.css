@@ -1,22 +1,25 @@
 .logoLink {
   display: flex;
   gap: 12px;
-
   align-items: center;
 }
+
 .logoImg {
   width: 32px;
   height: 32px;
 }
+
 .logoText {
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.03em;
   color: #fff;
 }
-.logoTextBlack {
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: -0.03em;
+
+.blackText {
   color: #1d1e21;
+}
+
+.whiteText {
+  color: #fff;
 }

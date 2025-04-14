@@ -13,7 +13,7 @@ export default function Footer() {
     <footer className={css.footer}>
       <div className={css.infoWrap}>
         <div>
-          <Logo />
+          <Logo logoSrc="/images/logo-white.png" classNameText={css.logoText} />
           <p className={css.text}>
             Get the medicine to help you feel better, get back to your active
             life, and enjoy every moment.

@@ -6,10 +6,14 @@ import css from "./Header.module.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import NavigationLinks from "./NavigationLinks/NavigationLinks";
 import AuthenticationLinks from "./AuthenticationLinks/AuthenticationLinks";
+import { useLocation } from "react-router";
 
 export default function Header() {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/home" || location.pathname === "/";
+
   const menuRef = useRef(null);
 
   const toggleMenu = () => {
@@ -37,7 +41,10 @@ export default function Header() {
       <Logo />
       {isMobile && (
         <button className={css.burgerBtn} onClick={toggleMenu}>
-          <Icons iconName="burger" className={css.burgerIcon} />
+          <Icons
+            iconName={isHome ? "burger" : "burger-green"}
+            className={css.burgerIcon}
+          />
         </button>
       )}
       {isMobile ? (

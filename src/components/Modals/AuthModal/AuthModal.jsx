@@ -8,16 +8,37 @@ export default function AuthModal({ onClose }) {
   const toggleForm = () => setIsLoginForm((prev) => !prev);
   return (
     <div className={css.modal}>
-      <button className={css.btnClose}>
+      <button className={css.btnClose} onClick={onClose}>
         <Icons iconName="close" className={css.iconClose} />
       </button>
       <h2 className={css.title}>
         {isLoginForm ? "Log in to your account" : "Sign Up"}
       </h2>
+      <p className={css.dexcription}>
+        {isLoginForm
+          ? "Please login to your account before continuing."
+          : "Before proceeding, please register on our site."}
+      </p>
       {isLoginForm ? (
-        <LoginForm onSwitch={toggleForm} onClose={onClose} />
+        <LoginForm
+          classNameForm={css.form}
+          classNameInput={css.input}
+          classNameBtn={css.button}
+          classNameLink={css.link}
+          classNameBtnWrap={css.btnWrap}
+          onSwitch={toggleForm}
+          onClose={onClose}
+        />
       ) : (
-        <RegisterForm onSwitch={toggleForm} onClose={onClose} />
+        <RegisterForm
+          classNameForm={css.form}
+          classNameInput={css.input}
+          classNameBtn={css.button}
+          classNameLink={css.link}
+          classNameBtnWrap={css.btnWrap}
+          onSwitch={toggleForm}
+          onClose={onClose}
+        />
       )}
     </div>
   );

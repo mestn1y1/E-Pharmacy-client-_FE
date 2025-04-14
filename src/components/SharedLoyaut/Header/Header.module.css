@@ -11,6 +11,12 @@
   height: 32px;
 }
 
+.burgerIcon {
+  width: 32px;
+  height: 32px;
+  stroke: #59b17a;
+}
+
 .burgerBtn {
   width: 32px;
   height: 32px;
@@ -24,7 +30,5 @@
 @media screen and (min-width: 1280px) {
   .header {
     padding: 30px 108px;
-  }
-  .descNavWrap {
   }
 }
