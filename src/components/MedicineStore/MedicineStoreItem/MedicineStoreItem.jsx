@@ -5,17 +5,24 @@ import { useAuth } from "../../../hooks/useAuth";
 import { useState } from "react";
 import { ModalWrap } from "../../Modals/ModalWrap/ModalWrap";
 import AuthModal from "../../Modals/AuthModal/AuthModal";
+import { useDispatch } from "react-redux";
+import { fetchStoreById } from "../../../redux/stores/operations";
 
 export default function MedicineStoreItem({ store }) {
-  const { address, city, name, phone, rating, status } = store;
+  const { address, city, name, phone, rating, status, _id } = store;
   const { isLoggedIn } = useAuth();
   const [showModal, setShowModal] = useState(false);
-
+  const dispatch = useDispatch();
   const handleLinkClick = (e) => {
     if (!isLoggedIn) {
       e.preventDefault();
       setShowModal(true);
     }
+  };
+
+  const handleFetch = () => {
+    dispatch(fetchStoreById(_id));
+    [dispatch, _id];
   };
   return (
     <>
@@ -24,6 +31,13 @@ export default function MedicineStoreItem({ store }) {
         <span className={css.decorationElement}></span>
         <span className={css.decorationElement}></span>
       </div>
+      <Link
+        className={css.linkTo}
+        to={`/medicine-store/${_id}`}
+        onClick={handleFetch}
+      >
+        Details store
+      </Link>
       <div className={css.headerItem}>
         <h3 className={css.itemName}>{name}</h3>
       </div>

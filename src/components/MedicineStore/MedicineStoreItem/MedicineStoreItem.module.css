@@ -53,6 +53,20 @@
   margin-right: 12px;
 }
 
+.linkTo {
+  position: absolute;
+  top: 35px;
+  right: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  color: #59b17a;
+}
+
+.linkTo:hover {
+  text-decoration: underline;
+}
+
 .infoBlock {
   display: flex;
   align-items: center;

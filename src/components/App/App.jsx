@@ -12,7 +12,9 @@ import Loader from "../Loader/Loader";
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const CartPage = lazy(() => import("../../pages/CartPage/CartPage"));
 const ProductPage = lazy(() => import("../../pages/ProductPage/ProductPage"));
-const ShopPage = lazy(() => import("../../pages/ShopPage/ShopPage"));
+const MedicineStoreDetailsPage = lazy(() =>
+  import("../../pages/MedicineStoreDetailsPage/MedicineStoreDetailsPage")
+);
 const MedicinePage = lazy(() =>
   import("../../pages/MedicinePage/MedicinePage")
 );
@@ -40,6 +42,10 @@ export default function App() {
             <Route path="home" element={<HomePage />} />
             <Route path="product" element={<ProductPage />} />
             <Route path="medicine-store" element={<MedicineStorePage />} />
+            <Route
+              path="medicine-store/:id"
+              element={<MedicineStoreDetailsPage />}
+            />
             <Route
               path="medicine"
               element={
