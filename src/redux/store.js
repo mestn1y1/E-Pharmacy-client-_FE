@@ -14,7 +14,7 @@ import { authReducer } from "./auth/slice";
 import { nearestReducer } from "./nearest/slice";
 import { reviewsReducer } from "./reviews/slice";
 import { storesReducer } from "./stores/slice";
-
+import { productsReducer } from "./products/slice";
 
 const authPersistConfig = {
   key: "auth",
@@ -28,6 +28,7 @@ export const store = configureStore({
     nearest: nearestReducer,
     reviews: reviewsReducer,
     stores: storesReducer,
+    products: productsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

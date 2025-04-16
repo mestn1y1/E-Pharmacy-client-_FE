@@ -1,1 +1,11 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.medicinePage {
+  padding: 120px 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  color: #1d1e21;
+  margin-bottom: 40px;
+}

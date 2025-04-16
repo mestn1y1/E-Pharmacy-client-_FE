@@ -55,7 +55,6 @@ export const refreshUser = createAsyncThunk(
     }
 
     try {
-      console.log("🔐 Token used in refreshUser:", persistedToken);
       setAuthHeader(persistedToken);
       const res = await axios.get(URL + "/user/user-info");
       return res.data;
