@@ -1,1 +1,15 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.container {
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  color: #6a6a6f;
+  margin-bottom: 20px;
+}
+
+.text span {
+  color: #1d1e21;
+}

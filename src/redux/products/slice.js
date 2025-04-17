@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchProducts } from "./operations";
+import { fetchProducts, fetchProductById } from "./operations";
 
 const initialState = {
   products: [],
@@ -11,6 +11,9 @@ const initialState = {
   perPage: 12,
   totalItems: 0,
   totalPages: 0,
+  productDetails: null,
+  isProductDetailsLoading: false,
+  productDetailsError: null,
 };
 
 const productSlice = createSlice({
@@ -35,6 +38,18 @@ const productSlice = createSlice({
       .addCase(fetchProducts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
+      })
+      .addCase(fetchProductById.pending, (state) => {
+        state.isProductDetailsLoading = true;
+        state.productDetailsError = null;
+      })
+      .addCase(fetchProductById.fulfilled, (state, action) => {
+        state.isProductDetailsLoading = false;
+        state.productDetails = action.payload;
+      })
+      .addCase(fetchProductById.rejected, (state, action) => {
+        state.isProductDetailsLoading = false;
+        state.productDetailsError = action.payload || action.error.message;
       });
   },
 });

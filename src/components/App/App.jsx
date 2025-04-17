@@ -26,6 +26,9 @@ const RegisterPage = lazy(() =>
   import("../../pages/RegisterPage/RegisterPage")
 );
 
+const Reviews = lazy(() => import("../Reviews/Reviews"));
+const Description = lazy(() => import("../Description/Description"));
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -40,7 +43,11 @@ export default function App() {
           <Route path="/" element={<SharedLoyaut />}>
             <Route index element={<Navigate to="/home" />} />
             <Route path="home" element={<HomePage />} />
-            <Route path="product" element={<ProductPage />} />
+            <Route path="product" element={<ProductPage />}>
+              <Route index element={<Description />} />
+              <Route path="description" element={<Description />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
             <Route path="medicine-store" element={<MedicineStorePage />} />
             <Route
               path="medicine-store/:id"

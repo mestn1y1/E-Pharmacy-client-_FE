@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Loader from "../../components/Loader/Loader";
 import PharmacyStatistics from "../../components/MedicineStore/PharmacyStatistics/PharmacyStatistics";
 import { useStore } from "../../hooks/useStore";
@@ -15,12 +16,15 @@ export default function MedicineStoreDetailsPage() {
     return <p>Store not found</p>;
   }
 
-  const { name, statistics } = selectedStore;
+  const { name, statistics, description } = selectedStore;
 
   return (
-    <div className={css.wrapper}>
-      <h1>{name}</h1>
+    <section className={css.container}>
+      <h1>Pharmacy Statistics : {name}</h1>
+      <p>{description}</p>
       <PharmacyStatistics statistics={statistics} />
-    </div>
+      <Link to="/medicine-store">Back to Stores</Link>
+      <Link to="/medicine">Go to Shop</Link>
+    </section>
   );
 }

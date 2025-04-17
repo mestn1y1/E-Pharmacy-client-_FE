@@ -59,7 +59,7 @@ export default function PharmacyStatistics({ statistics }) {
       <div className={css.chartGrid}>
         <div className={css.chartCard}>
           <h3>General Stats</h3>
-          <ResponsiveContainer width="100%" height={250}>
+          <ResponsiveContainer width="100%" height={200}>
             <BarChart data={barData}>
               <XAxis dataKey="name" />
               <YAxis />
@@ -71,13 +71,13 @@ export default function PharmacyStatistics({ statistics }) {
 
         <div className={css.chartCard}>
           <h3>Customer Satisfaction</h3>
-          <ResponsiveContainer width="100%" height={250}>
+          <ResponsiveContainer width="100%" height={200}>
             <PieChart>
               <Pie
                 data={pieData}
                 cx="50%"
                 cy="50%"
-                outerRadius={80}
+                outerRadius={60}
                 label
                 dataKey="value"
               >
@@ -95,7 +95,7 @@ export default function PharmacyStatistics({ statistics }) {
 
         <div className={css.chartCard}>
           <h3>Performance Radar</h3>
-          <ResponsiveContainer width="100%" height={250}>
+          <ResponsiveContainer width="100%" height={200}>
             <RadarChart data={radarData}>
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
@@ -114,7 +114,7 @@ export default function PharmacyStatistics({ statistics }) {
 
         <div className={css.chartCard}>
           <h3>Popular Products</h3>
-          <ResponsiveContainer width="100%" height={250}>
+          <ResponsiveContainer width="100%" height={150}>
             <BarChart data={popularProducts}>
               <XAxis dataKey="name" />
               <YAxis />
