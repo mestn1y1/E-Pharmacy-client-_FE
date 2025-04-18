@@ -15,7 +15,7 @@ import { nearestReducer } from "./nearest/slice";
 import { reviewsReducer } from "./reviews/slice";
 import { storesReducer } from "./stores/slice";
 import { productsReducer } from "./products/slice";
-import { cartReducer } from "./cart/slice";
+import cartReducer from "./cart/slice";
 
 const authPersistConfig = {
   key: "auth",
