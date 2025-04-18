@@ -3,10 +3,12 @@ import { useProducts } from "../../../hooks/useProducts";
 import { Button } from "../../Button/Button";
 import { Icons } from "../../Icons/Icons";
 import css from "./ProductOverview.module.css";
+import { useDispatch } from "react-redux";
 
 export default function ProductOverview() {
   const { product } = useProducts();
   const { photo, name, price, suppliers, stock, category } = product;
+  const dispatch = useDispatch();
   const [count, setCount] = useState(0);
   const handleIncrease = () => {
     if (count < stock) {
@@ -18,6 +20,14 @@ export default function ProductOverview() {
     if (count > 1) {
       setCount(count - 1);
     }
+  };
+
+  const addedToCart = () => {
+    if (!count) {
+      console.log("first add quantity");
+      return;
+    }
+    console.log("added to cart");
   };
 
   return (
@@ -41,7 +51,11 @@ export default function ProductOverview() {
               <Icons iconName="plus" className={css.icon} />
             </button>
           </div>
-          <Button text="Add to cart" className={css.btn} />
+          <Button
+            text="Add to cart"
+            className={css.btn}
+            onClick={addedToCart}
+          />
         </div>
       </div>
     </div>
