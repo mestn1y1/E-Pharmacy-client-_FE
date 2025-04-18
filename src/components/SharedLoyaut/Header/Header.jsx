@@ -7,13 +7,15 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import NavigationLinks from "./NavigationLinks/NavigationLinks";
 import AuthenticationLinks from "./AuthenticationLinks/AuthenticationLinks";
 import { useLocation } from "react-router";
+import UserInfo from "./UserInfo/UserInfo";
+import { useAuth } from "../../../hooks/useAuth";
 
 export default function Header() {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/home" || location.pathname === "/";
-
+  const { isLoggedIn } = useAuth();
   const menuRef = useRef(null);
 
   const toggleMenu = () => {
@@ -39,6 +41,7 @@ export default function Header() {
   return (
     <header className={css.header}>
       <Logo />
+      {isLoggedIn && <UserInfo />}
       {isMobile && (
         <button className={css.burgerBtn} onClick={toggleMenu}>
           <Icons
