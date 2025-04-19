@@ -40,7 +40,22 @@
   height: 44px;
   border-radius: 100%;
   background: rgba(89, 177, 122, 0.1);
-  /* background: red; */
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 140%;
+  color: #59b17a;
+}
+
+.userNameHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  background: #fff;
+
   font-weight: 600;
   font-size: 18px;
   line-height: 140%;
