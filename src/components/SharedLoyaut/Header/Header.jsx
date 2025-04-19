@@ -41,14 +41,16 @@ export default function Header() {
   return (
     <header className={css.header}>
       <Logo />
-      {isLoggedIn && <UserInfo />}
       {isMobile && (
-        <button className={css.burgerBtn} onClick={toggleMenu}>
-          <Icons
-            iconName={isHome ? "burger" : "burger-green"}
-            className={css.burgerIcon}
-          />
-        </button>
+        <div className={css.wrap}>
+          {isLoggedIn && <UserInfo />}
+          <button className={css.burgerBtn} onClick={toggleMenu}>
+            <Icons
+              iconName={isHome ? "burger" : "burger-green"}
+              className={css.burgerIcon}
+            />
+          </button>
+        </div>
       )}
       {isMobile ? (
         <BurgerMenu
@@ -59,6 +61,7 @@ export default function Header() {
       ) : (
         <div className={css.descNavWrap}>
           <NavigationLinks />
+          {isLoggedIn && <UserInfo />}
           <AuthenticationLinks />
         </div>
       )}

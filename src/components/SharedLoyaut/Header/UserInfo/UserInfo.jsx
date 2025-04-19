@@ -12,12 +12,12 @@ export default function UserInfo() {
   const countItem = cartItems.length;
 
   return (
-    <>
+    <div className={css.userInfo}>
       <Link to="/cart" className={css.link}>
         <Icons iconName="art" className={css.icon} />
         <p className={css.count}>{countItem}</p>
       </Link>
       <p className={!isHome ? css.userName : css.userNameHome}>{firstLetter}</p>
-    </>
+    </div>
   );
 }

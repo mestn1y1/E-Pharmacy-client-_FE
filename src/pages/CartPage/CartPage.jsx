@@ -7,9 +7,6 @@ import { fetchCartItems } from "../../redux/cart/operations";
 export default function CartPage() {
   const { cartItems } = useCart();
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCartItems());
-  }, [dispatch]);
 
   return (
     <section className={css.cartPage}>

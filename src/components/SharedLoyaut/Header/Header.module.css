@@ -25,6 +25,14 @@
 .descNavWrap {
   display: flex;
   flex-direction: row;
+  gap: 10px;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 @media screen and (min-width: 1280px) {

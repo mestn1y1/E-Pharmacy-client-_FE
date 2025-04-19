@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { logIn } from "../../../redux/auth/operations.js";
 import { Button } from "../../Button/Button.jsx";
 import { Link } from "react-router";
+import { fetchCartItems } from "../../../redux/cart/operations.js";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Невірний email").required("Обов'язкове поле"),
@@ -26,6 +27,7 @@ export default function LoginForm({
 
   const onSubmit = (values) => {
     dispatch(logIn(values)).unwrap();
+    dispatch(fetchCartItems());
     onClose();
   };
 
