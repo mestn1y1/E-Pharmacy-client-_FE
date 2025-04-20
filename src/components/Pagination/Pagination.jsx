@@ -35,10 +35,12 @@ export default function Pagination({
 
     if (result[0] > 1) {
       result.unshift("...");
+      result.unshift(1);
     }
 
     if (result[result.length - 1] < totalPages) {
       result.push("...");
+      result.push(totalPages);
     }
 
     return result;
@@ -65,9 +67,7 @@ export default function Pagination({
     setCurrentPage(totalPages);
   };
 
-  if (totalPages <= 1) {
-    return null;
-  }
+  if (totalPages <= 1) return null;
 
   return (
     <div className={css.paginationWrap}>
@@ -85,6 +85,7 @@ export default function Pagination({
       >
         <Icons iconName="left" className={css.icons} />
       </button>
+
       <ul className={css.pageList}>
         {visiblePages.map((page, index) => (
           <li key={index} className={css.pageItem}>
@@ -93,12 +94,14 @@ export default function Pagination({
                 page === currentPage ? css.active : ""
               }`}
               onClick={() => handlePageChange(page)}
+              disabled={page === "..."}
             >
               {page}
             </button>
           </li>
         ))}
       </ul>
+
       <button
         className={css.paginationBtn}
         onClick={handleNextPage}
