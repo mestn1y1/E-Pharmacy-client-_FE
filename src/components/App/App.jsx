@@ -8,6 +8,8 @@ import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import { refreshUser } from "../../redux/auth/operations";
 import { Navigate } from "react-router";
 import Loader from "../Loader/Loader";
+import { useAuth } from "../../hooks/useAuth";
+import { fetchCartItems } from "../../redux/cart/operations";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const CartPage = lazy(() => import("../../pages/CartPage/CartPage"));
@@ -31,10 +33,13 @@ const Description = lazy(() => import("../Description/Description"));
 
 export default function App() {
   const dispatch = useDispatch();
-
+  const { isLoggedIn } = useAuth();
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+    if (isLoggedIn) {
+      dispatch(fetchCartItems());
+    }
+  }, [dispatch, isLoggedIn]);
 
   return (
     <>

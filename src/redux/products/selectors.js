@@ -12,3 +12,8 @@ export const selectIsProductDetailsLoading = (state) =>
   state.products.isProductDetailsLoading;
 export const selectProductDetailsError = (state) =>
   state.products.productDetailsError;
+export const selectProductDetailsById = (state) =>
+  state.products.productDetailsById;
+
+export const selectProductById = (state, id) =>
+  state.products.productDetailsById[id];

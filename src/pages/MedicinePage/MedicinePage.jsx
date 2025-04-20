@@ -5,9 +5,12 @@ import ProductList from "../../components/Product/ProductList/ProductList";
 import { useProducts } from "../../hooks/useProducts";
 import Loader from "../../components/Loader/Loader";
 import css from "./MedicinePage.module.css";
+import { fetchCartItems } from "../../redux/cart/operations";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function MedicinePage() {
   const dispatch = useDispatch();
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     dispatch(fetchProducts());

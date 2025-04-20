@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../../redux/auth/operations.js";
 import { Button } from "../../Button/Button.jsx";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { fetchCartItems } from "../../../redux/cart/operations.js";
 
 const validationSchema = Yup.object().shape({
@@ -24,13 +24,15 @@ export default function LoginForm({
   onClose,
 }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const onSubmit = (values) => {
-    dispatch(logIn(values)).unwrap();
-    dispatch(fetchCartItems());
-    onClose();
+  const onSubmit = async (values) => {
+    try {
+      await dispatch(logIn(values)).unwrap();
+      navigate("/medicine");
+      onClose();
+    } catch (err) {}
   };
-
   return (
     <Formik
       initialValues={{ email: "", password: "" }}

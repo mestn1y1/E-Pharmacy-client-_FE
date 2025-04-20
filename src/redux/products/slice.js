@@ -11,7 +11,7 @@ const initialState = {
   perPage: 12,
   totalItems: 0,
   totalPages: 0,
-  productDetails: null,
+  productDetailsById: {},
   isProductDetailsLoading: false,
   productDetailsError: null,
 };
@@ -39,6 +39,7 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message;
       })
+
       .addCase(fetchProductById.pending, (state) => {
         state.isProductDetailsLoading = true;
         state.productDetailsError = null;
@@ -46,6 +47,7 @@ const productSlice = createSlice({
       .addCase(fetchProductById.fulfilled, (state, action) => {
         state.isProductDetailsLoading = false;
         state.productDetails = action.payload;
+        state.productDetailsById[action.payload._id] = action.payload;
       })
       .addCase(fetchProductById.rejected, (state, action) => {
         state.isProductDetailsLoading = false;

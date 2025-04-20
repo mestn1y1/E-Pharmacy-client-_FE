@@ -12,9 +12,11 @@ import {
   selectProductDetails,
   selectIsProductDetailsLoading,
   selectProductDetailsError,
+  selectProductDetailsById,
+  selectProductById,
 } from "../redux/products/selectors";
 
-export const useProducts = () => {
+export const useProducts = (productId = null) => {
   const products = useSelector(selectProducts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -25,13 +27,21 @@ export const useProducts = () => {
   const perPage = useSelector(selectPerPage);
   const totalItems = useSelector(selectTotalItems);
   const totalPages = useSelector(selectTotalPages);
+
   const product = useSelector(selectProductDetails);
+  const productDetailsById = useSelector(selectProductDetailsById);
+  const productById = useSelector((state) =>
+    productId ? selectProductById(state, productId) : null
+  );
+
   const isLoadingDetails = useSelector(selectIsProductDetailsLoading);
   const errorDetails = useSelector(selectProductDetailsError);
 
   return {
     products,
     product,
+    productById,
+    productDetailsById,
     isLoading,
     isLoadingDetails,
     errorDetails,

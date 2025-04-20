@@ -3,12 +3,11 @@ import { useProducts } from "../../../hooks/useProducts";
 import { Button } from "../../Button/Button";
 import { Icons } from "../../Icons/Icons";
 import css from "./ProductOverview.module.css";
-import { useDispatch } from "react-redux";
 
 export default function ProductOverview() {
   const { product } = useProducts();
   const { photo, name, price, suppliers, stock, category } = product;
-  const dispatch = useDispatch();
+
   const [count, setCount] = useState(0);
   const handleIncrease = () => {
     if (count < stock) {

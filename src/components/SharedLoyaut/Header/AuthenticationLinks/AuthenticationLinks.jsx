@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import css from "./AuthenticationLinks.module.css";
 import { useAuth } from "../../../../hooks/useAuth";
 import { logOut } from "../../../../redux/auth/operations";
@@ -8,6 +8,7 @@ export default function AuthenticationLinks({ onLinkClick }) {
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/home" || location.pathname === "/";
   const authLinks = [
     { to: "/register", label: "Register" },
@@ -16,6 +17,7 @@ export default function AuthenticationLinks({ onLinkClick }) {
 
   const handleLogOut = () => {
     dispatch(logOut());
+    navigate("/home");
     onLinkClick();
   };
 
