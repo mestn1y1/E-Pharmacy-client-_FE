@@ -6,13 +6,15 @@ import { useDispatch } from "react-redux";
 import { fetchProductById } from "../../../redux/products/operations";
 import { useAuth } from "../../../hooks/useAuth";
 import { useState } from "react";
-import { addToCart } from "../../../redux/cart/operations";
+import { addToCart, updateCartItem } from "../../../redux/cart/operations";
 import AuthModal from "../../Modals/AuthModal/AuthModal";
 import { ModalWrap } from "../../Modals/ModalWrap/ModalWrap";
+import { useCart } from "../../../hooks/useCart";
 
 export default function ProductItem({ item }) {
   const { photo, price, name, category, _id } = item;
   const { isLoggedIn } = useAuth();
+  const { cartItems } = useCart();
   const [modalAuthOpen, setAuthModalOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,9 +27,22 @@ export default function ProductItem({ item }) {
   const addedToCart = () => {
     if (!isLoggedIn) {
       setAuthModalOpen(true);
+      return;
+    }
+
+    const existingItem = cartItems.find(
+      (cartItem) => cartItem.productId === _id
+    );
+
+    if (existingItem) {
+      dispatch(
+        updateCartItem({
+          productId: _id,
+          quantity: (existingItem.quantity || 1) + 1,
+        })
+      );
     } else {
       dispatch(addToCart({ productId: _id }));
-      console.log("added to cart");
     }
   };
 

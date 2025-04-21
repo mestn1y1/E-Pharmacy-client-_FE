@@ -1,0 +1,65 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  width: 100%;
+  height: 44px;
+  background: #fff;
+  padding: 13px;
+  padding-right: 40px;
+}
+
+.input::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(29, 30, 33, 0.4);
+}
+
+.button {
+  width: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #fff;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+}
+
+.iconSearch {
+  fill: transparent;
+  stroke: #1d1e21;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    flex-direction: row;
+  }
+
+  .inputWrapper {
+    width: 224px;
+  }
+}

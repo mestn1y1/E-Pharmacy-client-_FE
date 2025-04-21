@@ -1,25 +1,32 @@
 import { useState } from "react";
 import css from "./CartItem.module.css";
 import { Icons } from "../../Icons/Icons";
+import { deleteCartItem, updateCartItem } from "../../../redux/cart/operations";
+import { useDispatch } from "react-redux";
+import { Loader } from "../../Loader/Loader";
+import { useCart } from "../../../hooks/useCart";
 
-export default function CartItem({ product, quantity, onRemove }) {
+export default function CartItem({ product, quantity }) {
   const [itemQuantity, setItemQuantity] = useState(quantity);
   const { photo, name, price, _id, category } = product;
+  const dispatch = useDispatch();
 
   const handleIncrease = () => {
-    setItemQuantity((prev) => prev + 1);
+    const newQuantity = itemQuantity + 1;
+    setItemQuantity(newQuantity);
+    dispatch(updateCartItem({ productId: _id, quantity: newQuantity }));
   };
 
   const handleDecrease = () => {
     if (itemQuantity > 1) {
-      setItemQuantity((prev) => prev - 1);
+      const newQuantity = itemQuantity - 1;
+      setItemQuantity(newQuantity);
+      dispatch(updateCartItem({ productId: _id, quantity: newQuantity }));
     }
   };
 
   const handleRemove = () => {
-    if (onRemove) {
-      onRemove(_id);
-    }
+    dispatch(deleteCartItem(_id));
   };
 
   return (

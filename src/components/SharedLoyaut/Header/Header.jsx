@@ -62,7 +62,7 @@ export default function Header() {
         <div className={css.descNavWrap}>
           <NavigationLinks />
           {isLoggedIn && <UserInfo />}
-          <AuthenticationLinks />
+          <AuthenticationLinks isMobile={isMobile} />
         </div>
       )}
     </header>

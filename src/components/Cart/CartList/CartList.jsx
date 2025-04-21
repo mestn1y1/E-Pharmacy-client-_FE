@@ -25,7 +25,6 @@ export default function CartList({ cartItems }) {
     <ul className={css.list}>
       {cartItems.map(({ productId, quantity }) => {
         const product = productDetailsById[productId];
-
         if (!product) return null;
         return (
           <li key={productId} className={css.item}>
