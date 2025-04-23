@@ -10,11 +10,11 @@ import Filter from "../../components/Product/Filter/Filter";
 
 export default function MedicinePage() {
   const dispatch = useDispatch();
-  const { isLoading, products, page, totalPages } = useProducts();
+  const { isLoading, products, totalPages } = useProducts();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
-    search: "",
+    name: "",
     category: "",
   });
 
@@ -31,15 +31,18 @@ export default function MedicinePage() {
     <section className={css.medicinePage}>
       <h1 className={css.title}>Medicine</h1>
       <Filter onFilter={handleFilter} />
-      {products.length === 0 ||
-        (isLoading && (
-          <p className={css.loadingText}>Products is loading ...</p>
-        ))}
+
+      {isLoading && <p className={css.loadingText}>Products are loading...</p>}
+
+      {products.length === 0 && !isLoading && (
+        <p className={css.loadingText}>Products not found ....</p>
+      )}
+
       {isLoading ? (
         <Loader />
       ) : (
         <>
-          <ProductList items={products} />
+          <ProductList items={products} />{" "}
         </>
       )}
       <Pagination

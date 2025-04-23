@@ -6,13 +6,13 @@ import { Icons } from "../../Icons/Icons";
 import { Button } from "../../Button/Button";
 
 const validationSchema = Yup.object().shape({
-  search: Yup.string(),
+  name: Yup.string(),
   category: Yup.string(),
 });
 
 export default function Filter({ onFilter }) {
   const initialValues = {
-    search: "",
+    name: "",
     category: "",
   };
 
@@ -31,13 +31,15 @@ export default function Filter({ onFilter }) {
           <SelectCategory setValue={setFieldValue} />
           <div className={css.inputWrapper}>
             <Field
-              name="search"
+              name="name"
               placeholder="Search medicine"
               className={css.input}
               value={values.search}
-              onChange={(e) => setFieldValue("search", e.target.value)}
+              onChange={(e) => setFieldValue("name", e.target.value)}
             />
-            <Icons iconName="search" className={css.iconSearch} />
+            <button onClick={handleSubmit} type="submit">
+              <Icons iconName="search" className={css.iconSearch} />
+            </button>
           </div>
 
           <Button text="Filter" type="submit" className={css.button}>
