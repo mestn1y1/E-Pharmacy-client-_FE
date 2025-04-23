@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { useProducts } from "../../../hooks/useProducts";
+import { addToCart, updateCartItem } from "../../../redux/cart/operations";
+import { useCart } from "../../../hooks/useCart";
 import { Button } from "../../Button/Button";
 import { Icons } from "../../Icons/Icons";
 import css from "./ProductOverview.module.css";
+import { useDispatch } from "react-redux";
 
 export default function ProductOverview() {
   const { product } = useProducts();
-  const { photo, name, price, suppliers, stock, category } = product;
-
-  const [count, setCount] = useState(0);
+  const { photo, name, price, suppliers, stock, category, _id } = product;
+  const { cartItems } = useCart();
+  const [count, setCount] = useState(1);
+  const dispatch = useDispatch();
   const handleIncrease = () => {
     if (count < stock) {
       setCount(count + 1);
@@ -20,13 +24,21 @@ export default function ProductOverview() {
       setCount(count - 1);
     }
   };
+  const handleAddToCart = () => {
+    const existingItem = cartItems.find(
+      (cartItem) => cartItem.productId === _id
+    );
 
-  const addedToCart = () => {
-    if (!count) {
-      console.log("first add quantity");
-      return;
+    if (existingItem) {
+      dispatch(
+        updateCartItem({
+          productId: _id,
+          quantity: existingItem.quantity + count,
+        })
+      );
+    } else {
+      dispatch(addToCart({ productId: _id, quantity: count }));
     }
-    console.log("added to cart");
   };
 
   return (
@@ -53,7 +65,7 @@ export default function ProductOverview() {
           <Button
             text="Add to cart"
             className={css.btn}
-            onClick={addedToCart}
+            onClick={handleAddToCart}
           />
         </div>
       </div>

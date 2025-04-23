@@ -3,8 +3,6 @@ import css from "./CartItem.module.css";
 import { Icons } from "../../Icons/Icons";
 import { deleteCartItem, updateCartItem } from "../../../redux/cart/operations";
 import { useDispatch } from "react-redux";
-import { Loader } from "../../Loader/Loader";
-import { useCart } from "../../../hooks/useCart";
 
 export default function CartItem({ product, quantity }) {
   const [itemQuantity, setItemQuantity] = useState(quantity);
