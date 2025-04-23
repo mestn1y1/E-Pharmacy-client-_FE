@@ -7,3 +7,19 @@
   line-height: 114%;
   color: #1d1e21;
 }
+
+@media screen and (min-width: 768px) {
+  .cartPage {
+    padding: 152px 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .cartPage {
+    padding: 172px 108px;
+  }
+  .contentWrap {
+    display: flex;
+    justify-content: space-between;
+  }
+}

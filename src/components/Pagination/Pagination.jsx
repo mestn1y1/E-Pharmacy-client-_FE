@@ -15,8 +15,6 @@ export default function Pagination({
     return pages;
   }, [totalPages]);
 
-  console.log(totalPages, currentPage);
-
   const visiblePages = useMemo(() => {
     if (pageNumbers.length <= 5) {
       return pageNumbers;

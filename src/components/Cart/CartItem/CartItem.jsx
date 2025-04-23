@@ -33,9 +33,13 @@ export default function CartItem({ product, quantity }) {
         <img src={photo} alt={name} className={css.img} />
       </div>
       <div className={css.infoBlock}>
-        <h1 className={css.title}>{name}</h1>
-        <p className={css.category}>{category}</p>
-        <p className={css.price}>₴{price}</p>
+        <div className={css.textContainer}>
+          <div className={css.textWrap}>
+            <h1 className={css.title}>{name}</h1>
+            <p className={css.category}>{category}</p>
+          </div>
+          <p className={css.price}>₴{price}</p>
+        </div>
         <div className={css.btnBlock}>
           <div className={css.countWrap}>
             <button onClick={handleDecrease}>

@@ -10,3 +10,15 @@
   border-bottom: 1px solid rgba(29, 30, 33, 0.1);
   gap: 12px;
 }
+
+@media screen and (min-width: 768px) {
+  .item {
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .item {
+    width: 460px;
+  }
+}

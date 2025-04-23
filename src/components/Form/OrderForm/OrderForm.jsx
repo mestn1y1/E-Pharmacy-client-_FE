@@ -26,59 +26,61 @@ export default function OrderForm() {
             send any other location where you send the products.
           </p>
 
-          <div className={css.wrapInput}>
-            <label htmlFor="name" className={css.label}>
-              Name
-            </label>
-            <Field
-              type="text"
-              name="name"
-              id="name"
-              className={css.input}
-              placeholder="Enter text"
-            />
-            <ErrorMessage name="name" component="div" />
-          </div>
+          <div className={css.inputContainer}>
+            <div className={css.wrapInput}>
+              <label htmlFor="name" className={css.label}>
+                Name
+              </label>
+              <Field
+                type="text"
+                name="name"
+                id="name"
+                className={css.input}
+                placeholder="Enter text"
+              />
+              <ErrorMessage name="name" component="div" />
+            </div>
 
-          <div className={css.wrapInput}>
-            <label htmlFor="email" className={css.label}>
-              Email
-            </label>
-            <Field
-              type="email"
-              name="email"
-              id="email"
-              className={css.input}
-              placeholder="Enter text"
-            />
-            <ErrorMessage name="email" component="div" />
-          </div>
+            <div className={css.wrapInput}>
+              <label htmlFor="email" className={css.label}>
+                Email
+              </label>
+              <Field
+                type="email"
+                name="email"
+                id="email"
+                className={css.input}
+                placeholder="Enter text"
+              />
+              <ErrorMessage name="email" component="div" />
+            </div>
 
-          <div className={css.wrapInput}>
-            <label htmlFor="phone" className={css.label}>
-              Phone
-            </label>
-            <Field
-              type="text"
-              name="phone"
-              id="phone"
-              className={css.input}
-              placeholder="Enter text"
-            />
-            <ErrorMessage name="phone" component="div" />
-          </div>
-          <div className={css.wrapInput}>
-            <label htmlFor="address" className={css.label}>
-              Address
-            </label>
-            <Field
-              type="text"
-              name="address"
-              id="address"
-              className={css.input}
-              placeholder="Enter text"
-            />
-            <ErrorMessage name="address" component="div" />
+            <div className={css.wrapInput}>
+              <label htmlFor="phone" className={css.label}>
+                Phone
+              </label>
+              <Field
+                type="text"
+                name="phone"
+                id="phone"
+                className={css.input}
+                placeholder="Enter text"
+              />
+              <ErrorMessage name="phone" component="div" />
+            </div>
+            <div className={css.wrapInput}>
+              <label htmlFor="address" className={css.label}>
+                Address
+              </label>
+              <Field
+                type="text"
+                name="address"
+                id="address"
+                className={css.input}
+                placeholder="Enter text"
+              />
+              <ErrorMessage name="address" component="div" />
+            </div>
           </div>
 
           <hr className={css.line} />
