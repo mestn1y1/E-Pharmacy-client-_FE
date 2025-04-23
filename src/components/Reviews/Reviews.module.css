@@ -15,7 +15,7 @@
 }
 .name {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 140%;
   color: #1d1e21;
 }
@@ -52,4 +52,23 @@
   font-size: 14px;
   line-height: 129%;
   color: #6a6a6f;
+}
+
+@media screen and (min-width: 375px) {
+  .name {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .info {
+    justify-content: start;
+  }
+
+  .nameWrap {
+    margin-left: 20px;
+  }
+
+  .rating {
+    margin-left: auto;
+  }
 }

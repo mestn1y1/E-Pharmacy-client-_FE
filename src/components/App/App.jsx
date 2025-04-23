@@ -48,7 +48,12 @@ export default function App() {
           <Route path="/" element={<SharedLoyaut />}>
             <Route index element={<Navigate to="/home" />} />
             <Route path="home" element={<HomePage />} />
-            <Route path="product" element={<ProductPage />}>
+            <Route
+              path="product"
+              element={
+                <PrivateRoute redirectTo="/home" component={<ProductPage />} />
+              }
+            >
               <Route index element={<Description />} />
               <Route path="description" element={<Description />} />
               <Route path="reviews" element={<Reviews />} />

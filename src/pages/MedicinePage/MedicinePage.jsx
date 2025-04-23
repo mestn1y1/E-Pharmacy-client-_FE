@@ -12,7 +12,7 @@ export default function MedicinePage() {
   const dispatch = useDispatch();
   const { isLoading, products, page, totalPages } = useProducts();
 
-  const [currentPage, setCurrentPage] = useState(page);
+  const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
     search: "",
     category: "",
@@ -31,19 +31,22 @@ export default function MedicinePage() {
     <section className={css.medicinePage}>
       <h1 className={css.title}>Medicine</h1>
       <Filter onFilter={handleFilter} />
-
+      {products.length === 0 ||
+        (isLoading && (
+          <p className={css.loadingText}>Products is loading ...</p>
+        ))}
       {isLoading ? (
         <Loader />
       ) : (
         <>
           <ProductList items={products} />
-          <Pagination
-            page={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-          />
         </>
       )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        setCurrentPage={setCurrentPage}
+      />
     </section>
   );
 }

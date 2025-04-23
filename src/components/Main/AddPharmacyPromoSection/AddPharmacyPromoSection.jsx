@@ -1,4 +1,6 @@
+import { Link } from "react-router";
 import css from "./AddPharmacyPromoSection.module.css";
+
 export default function AddPharmacyPromoSection() {
   return (
     <section className={css.container}>
@@ -8,7 +10,9 @@ export default function AddPharmacyPromoSection() {
           Enjoy the convenience of having your prescriptions filled from home by
           connecting with your community pharmacy through our online platform.
         </p>
-        <button className={css.btn}>Buy medicine</button>
+        <Link to="/medicine-store" className={css.btn}>
+          Buy medicine
+        </Link>
       </div>
 
       <picture>

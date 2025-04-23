@@ -80,3 +80,40 @@
   width: 20px;
   height: 20px;
 }
+
+@media screen and (min-width: 768px) {
+  .productWrap {
+    display: flex;
+    gap: 16px;
+  }
+  .img {
+    width: 364px;
+    height: 284px;
+  }
+  .infoWrap {
+    width: 324px;
+    padding: 32px;
+  }
+  .title {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+  .btnBlock {
+    margin-top: 68px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .productWrap {
+    flex-direction: column;
+  }
+  .infoWrap {
+    width: 364px;
+  }
+  .btnBlock {
+    margin-top: 12px;
+  }
+}

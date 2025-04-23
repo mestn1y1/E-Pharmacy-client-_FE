@@ -11,3 +11,26 @@
   flex-direction: column;
   gap: 8px;
 }
+
+@media screen and (min-width: 768px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .item {
+    width: 221px;
+    height: 404px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 40px;
+  }
+  .item {
+    width: 280px;
+    height: 100%;
+  }
+}

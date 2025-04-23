@@ -1,3 +1,15 @@
 .product {
   padding: 120px 20px;
 }
+@media screen and (min-width: 768px) {
+  .product {
+    padding: 134px 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .product {
+    padding: 172px 108px;
+    display: flex;
+    gap: 20px;
+  }
+}

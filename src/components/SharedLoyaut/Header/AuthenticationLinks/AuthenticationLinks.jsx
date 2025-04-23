@@ -42,7 +42,16 @@ export default function AuthenticationLinks({ onLinkClick }) {
       ) : (
         <ul className={css.authList}>
           {authLinks.map(({ to, label }) => (
-            <li className={css.listItem} key={to}>
+            <li
+              className={
+                isMobile
+                  ? css.listItem
+                  : isHome
+                  ? css.listItem
+                  : css.listItemGreen
+              }
+              key={to}
+            >
               <NavLink to={to} onClick={onLinkClick}>
                 {label}
               </NavLink>
