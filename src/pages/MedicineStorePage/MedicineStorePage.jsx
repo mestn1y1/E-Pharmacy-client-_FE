@@ -1,3 +1,46 @@
+// import { useDispatch } from "react-redux";
+// import css from "./MedicineStorePage.module.css";
+// import { useStore } from "../../hooks/useStore";
+// import Loader from "../../components/Loader/Loader";
+// import MedicineStoresList from "../../components/MedicineStore/MedicineStoresList";
+// import { useEffect } from "react";
+// import { fetchStores } from "../../redux/stores/operations";
+// // export default function MedicineStorePage() {
+// //   const { isLoading, stores } = useStore();
+// //   const dispatch = useDispatch();
+
+// //   useEffect(() => {
+// //     dispatch(fetchStores());
+// //   }, [dispatch]);
+
+// //   return (
+// //     <section className={css.medicineStore}>
+// //       <h1 className={css.title}>Medicine store</h1>
+// //       {isLoading ? <Loader /> : <MedicineStoresList items={stores} />}
+// //     </section>
+// //   );
+// // }
+// export default function MedicineStorePage() {
+//   const { isLoading, stores } = useStore();
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     dispatch(fetchStores());
+//   }, [dispatch]);
+
+//   return (
+//     <section className={css.medicineStore}>
+//       <h1 className={css.title}>Medicine store</h1>
+//       {isLoading ? (
+//         <Loader />
+//       ) : stores.length > 0 ? (
+//         <MedicineStoresList items={stores} />
+//       ) : (
+//         <p className={css.loadingText}>Завантажуємо список аптек...</p>
+//       )}
+//     </section>
+//   );
+// }
 import { useDispatch } from "react-redux";
 import css from "./MedicineStorePage.module.css";
 import { useStore } from "../../hooks/useStore";
@@ -5,6 +48,7 @@ import Loader from "../../components/Loader/Loader";
 import MedicineStoresList from "../../components/MedicineStore/MedicineStoresList";
 import { useEffect } from "react";
 import { fetchStores } from "../../redux/stores/operations";
+
 export default function MedicineStorePage() {
   const { isLoading, stores } = useStore();
   const dispatch = useDispatch();
@@ -16,6 +60,9 @@ export default function MedicineStorePage() {
   return (
     <section className={css.medicineStore}>
       <h1 className={css.title}>Medicine store</h1>
+      {stores.length === 0 && (
+        <p className={css.loadingText}>Loading medicine stores ..... </p>
+      )}
       {isLoading ? <Loader /> : <MedicineStoresList items={stores} />}
     </section>
   );

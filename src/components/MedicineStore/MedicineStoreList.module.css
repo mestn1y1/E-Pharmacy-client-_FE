@@ -38,8 +38,9 @@
   .list {
     column-gap: 36px;
     row-gap: 38px;
+    justify-content: start;
   }
   .item {
-    width: 392px;
+    width: 382px;
   }
 }
