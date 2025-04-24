@@ -29,7 +29,6 @@ export default function PharmacyStatistics({ statistics }) {
     customerSatisfaction,
     inventorySize,
     avgWaitingTimeMin,
-    popularProducts = [],
   } = statistics;
 
   const barData = [
@@ -54,9 +53,7 @@ export default function PharmacyStatistics({ statistics }) {
 
   return (
     <section className={css.wrapper}>
-      <h2 className={css.title}>Pharmacy Statistics</h2>
-
-      <div className={css.chartGrid}>
+      <div className={css.chartList}>
         <div className={css.chartCard}>
           <h3>General Stats</h3>
           <ResponsiveContainer width="100%" height={200}>
@@ -109,18 +106,6 @@ export default function PharmacyStatistics({ statistics }) {
               />
               <Tooltip />
             </RadarChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className={css.chartCard}>
-          <h3>Popular Products</h3>
-          <ResponsiveContainer width="100%" height={150}>
-            <BarChart data={popularProducts}>
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="sales" fill="#ff7300" radius={[8, 8, 0, 0]} />
-            </BarChart>
           </ResponsiveContainer>
         </div>
       </div>

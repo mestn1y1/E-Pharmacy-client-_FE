@@ -1,11 +1,15 @@
+.wrapper {
+  margin-top: 20px;
+}
+
 .title {
   font-size: 24px;
   margin-bottom: 16px;
 }
 
-.chartGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.chartList {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -14,9 +18,4 @@
   border-radius: 12px;
   padding: 8px 16px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-.chartGrid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }

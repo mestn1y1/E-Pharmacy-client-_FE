@@ -1,3 +1,86 @@
 .container {
   padding: 120px 20px;
+  min-height: 600px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 114%;
+  color: #1d1e21;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 114%;
+  color: #1d1e21;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6a6a6f;
+}
+.phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: #93939a;
+  margin-bottom: 12px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.linkBlock {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  padding: 8px 25px;
+  width: 100%;
+  height: 33px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #fff;
+  background: #59b17a;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 152px 32px;
+  }
+  .linkBlock {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .link {
+    width: 300px;
+    height: 42px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    padding: 172px 108px;
+  }
 }
