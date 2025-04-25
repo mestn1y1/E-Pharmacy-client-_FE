@@ -1,30 +1,34 @@
+import { useDispatch } from "react-redux";
 import { useCart } from "../../../hooks/useCart";
 import { Button } from "../../Button/Button";
 import css from "./OrderForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { checkoutCart } from "../../../redux/cart/operations";
 
 export default function OrderForm() {
   const { cartItems } = useCart();
-  const total = cartItems.reduce((sum, { price, quantity }) => {
+  const totalAmount = cartItems.reduce((sum, { price, quantity }) => {
     return parseFloat((sum + price * quantity).toFixed(2));
   }, 0);
-  console.log(total);
   const initialValues = {
     name: "",
     email: "",
     phone: "",
-    address: "",
-    payment: "Cash On Delivery",
-    total,
+    shippingAddress: "",
+    paymentMethod: "Cash On Delivery",
+    totalAmount,
+  };
+
+  const dispatch = useDispatch();
+  const handleSubmit = (values, actions) => {
+    dispatch(checkoutCart(values));
+    actions.formReset();
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values) => {
-        console.log("Form values:", values);
-        console.log("Total:", total);
-      }}
+      onSubmit={handleSubmit}
       enableReinitialize
     >
       {() => (
@@ -78,20 +82,20 @@ export default function OrderForm() {
               <ErrorMessage name="phone" component="div" />
             </div>
             <div className={css.wrapInput}>
-              <label htmlFor="address" className={css.label}>
+              <label htmlFor="shippingAddress" className={css.label}>
                 Address
               </label>
               <Field
                 type="text"
-                name="address"
-                id="address"
+                name="shippingAddress"
+                id="shippingAddress"
                 className={css.input}
                 placeholder="Enter text"
               />
-              <ErrorMessage name="address" component="div" />
+              <ErrorMessage name="shippingAddress" component="div" />
             </div>
           </div>
-          <Field type="hidden" name="total" />
+          <Field type="hidden" name="totalAmount" />
           <hr className={css.line} />
           <h3 className={css.title}>Payment method</h3>
           <p className={css.description}>
@@ -102,7 +106,7 @@ export default function OrderForm() {
             <label className={`${css.radioLabel} ${css.customRadio}`}>
               <Field
                 type="radio"
-                name="payment"
+                name="paymentMethod"
                 value="Cash On Delivery"
                 className={css.visuallyHidden}
               />
@@ -112,7 +116,7 @@ export default function OrderForm() {
             <label className={`${css.radioLabel} ${css.customRadio}`}>
               <Field
                 type="radio"
-                name="payment"
+                name="paymentMethod"
                 value="Bank"
                 className={css.visuallyHidden}
               />
@@ -128,7 +132,7 @@ export default function OrderForm() {
           </p>
 
           <p className={css.total}>
-            Total: <span>₴{total}</span>
+            Total: <span>₴{totalAmount}</span>
           </p>
           <Button text="Place order" type="submit" className={css.btn} />
         </Form>

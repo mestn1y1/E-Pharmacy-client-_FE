@@ -55,11 +55,18 @@ export const deleteCartItem = createAsyncThunk(
 
 export const checkoutCart = createAsyncThunk(
   "cart/checkoutCart",
-  async ({ paymentMethod, shippingAddress }, thunkAPI) => {
+  async (
+    { name, email, phone, shippingAddress, paymentMethod, totalAmount },
+    thunkAPI
+  ) => {
     try {
       const res = await axios.post(URL + "/cart/checkout", {
-        paymentMethod,
+        name,
+        email,
+        phone,
         shippingAddress,
+        paymentMethod,
+        totalAmount,
       });
       return res.data.data;
     } catch (error) {
