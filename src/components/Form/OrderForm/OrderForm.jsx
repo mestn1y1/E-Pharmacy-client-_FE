@@ -1,14 +1,21 @@
+import { useCart } from "../../../hooks/useCart";
 import { Button } from "../../Button/Button";
 import css from "./OrderForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 export default function OrderForm() {
+  const { cartItems } = useCart();
+  const total = cartItems.reduce((sum, { price, quantity }) => {
+    return parseFloat((sum + price * quantity).toFixed(2));
+  }, 0);
+  console.log(total);
   const initialValues = {
     name: "",
     email: "",
     phone: "",
     address: "",
     payment: "Cash On Delivery",
+    total,
   };
 
   return (
@@ -16,7 +23,9 @@ export default function OrderForm() {
       initialValues={initialValues}
       onSubmit={(values) => {
         console.log("Form values:", values);
+        console.log("Total:", total);
       }}
+      enableReinitialize
     >
       {() => (
         <Form className={css.form}>
@@ -82,7 +91,7 @@ export default function OrderForm() {
               <ErrorMessage name="address" component="div" />
             </div>
           </div>
-
+          <Field type="hidden" name="total" />
           <hr className={css.line} />
           <h3 className={css.title}>Payment method</h3>
           <p className={css.description}>
@@ -119,7 +128,7 @@ export default function OrderForm() {
           </p>
 
           <p className={css.total}>
-            Total: <span>₴2434</span>
+            Total: <span>₴{total}</span>
           </p>
           <Button text="Place order" type="submit" className={css.btn} />
         </Form>

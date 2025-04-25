@@ -7,7 +7,7 @@ export default function SharedLoyaut() {
   return (
     <>
       <Header />
-      <main>
+      <main className={css.main}>
         <Outlet />
       </main>
       <Footer />

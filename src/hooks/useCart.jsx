@@ -5,7 +5,7 @@ import {
   selectCartLoading,
   selectCartOrder,
   selectCartTotalQuantity,
-  selectCartTotalPrice,
+  selectCartTotal,
 } from "../redux/cart/selectors";
 
 export const useCart = () => {
@@ -14,7 +14,7 @@ export const useCart = () => {
   const isLoading = useSelector(selectCartLoading);
   const cartOrder = useSelector(selectCartOrder);
   const totalQuantity = useSelector(selectCartTotalQuantity);
-  const totlaPrice = useSelector(selectCartTotalPrice);
+  const totalPrice = useSelector(selectCartTotal);
 
   return {
     error,
@@ -22,6 +22,6 @@ export const useCart = () => {
     isLoading,
     cartOrder,
     totalQuantity,
-    totlaPrice,
+    totalPrice,
   };
 };
