@@ -11,7 +11,7 @@ const items = [
 
 export default function Features() {
   return (
-    <div className={css.marqueeWrapper}>
+    <div id="features" className={css.marqueeWrapper}>
       <ul className={css.list}>
         {items.map((text, index) => (
           <li className={css.listItem} key={index}>

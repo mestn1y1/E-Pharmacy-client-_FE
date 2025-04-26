@@ -66,6 +66,11 @@
   line-height: 140%;
   color: #93939a;
   align-self: flex-end;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.bunerBtn:hover {
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 375px) {

@@ -1,6 +1,17 @@
-import { Link } from "react-router";
+import { useNavigate } from "react-router-dom";
 import css from "./PromoBaners.module.css";
-export default function PromoBaners() {
+export default function PromoBaners({ isLoggedIn, onShowModal }) {
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (isLoggedIn) {
+      navigate("/medicine");
+    } else {
+      onShowModal();
+    }
+  };
+
   return (
     <ul className={css.banersList}>
       <li className={css.banersItem}>
@@ -10,7 +21,9 @@ export default function PromoBaners() {
         </div>
         <div className={css.flexWrapSecond}>
           <p className={css.bunerPercent}>70%</p>
-          <button className={css.bunerBtn}>Shop now</button>
+          <button onClick={handleClick} className={css.bunerBtn}>
+            Shop now
+          </button>
         </div>
       </li>
       <li className={css.banersItem}>
@@ -20,7 +33,9 @@ export default function PromoBaners() {
         </div>
         <div className={css.flexWrapSecond}>
           <p className={css.bunerPercent}>100%</p>
-          <button className={css.bunerBtn}>Read more</button>
+          <a href="#features" className={css.bunerBtn}>
+            <button className={css.bunerBtn}>Read more</button>
+          </a>
         </div>
       </li>
       <li className={css.banersItem}>
@@ -30,7 +45,9 @@ export default function PromoBaners() {
         </div>
         <div className={css.flexWrapSecond}>
           <p className={css.bunerPercent}>35%</p>
-          <button className={css.bunerBtn}>Shop now</button>
+          <button onClick={handleClick} className={css.bunerBtn}>
+            Shop now
+          </button>
         </div>
       </li>
     </ul>
