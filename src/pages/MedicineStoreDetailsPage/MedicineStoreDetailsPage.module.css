@@ -63,6 +63,10 @@
   text-align: center;
   color: #fff;
   background: #59b17a;
+  transition: var(--butonAnimation);
+}
+.link:hover {
+  background: #3f945f;
 }
 
 .loadingText {
@@ -70,8 +74,8 @@
   font-size: 14px;
   line-height: 100%;
   color: #59b17a;
-  margin-top: 180px;
-  margin-left: 108px;
+  padding-top: 180px;
+  margin-left: 20px;
 }
 @media screen and (min-width: 768px) {
   .container {
@@ -86,10 +90,16 @@
     height: 42px;
     font-size: 16px;
   }
+  .loadingText {
+    margin-left: 32px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     padding: 172px 108px;
+  }
+  .loadingText {
+    margin-left: 108px;
   }
 }

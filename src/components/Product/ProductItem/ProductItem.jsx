@@ -20,7 +20,7 @@ export default function ProductItem({ item }) {
   const navigate = useNavigate();
   const handleFetchDetails = () => {
     dispatch(fetchProductById(_id)).then(() => {
-      navigate("/product");
+      navigate("/medicine/product");
     });
   };
 

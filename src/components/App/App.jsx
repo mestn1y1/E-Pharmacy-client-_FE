@@ -49,7 +49,7 @@ export default function App() {
             <Route index element={<Navigate to="/home" />} />
             <Route path="home" element={<HomePage />} />
             <Route
-              path="product"
+              path="/medicine/product"
               element={
                 <PrivateRoute redirectTo="/home" component={<ProductPage />} />
               }

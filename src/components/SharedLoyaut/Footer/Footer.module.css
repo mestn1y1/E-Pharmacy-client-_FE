@@ -24,6 +24,9 @@
   color: #f7f8fa;
 }
 
+.link:hover {
+  text-decoration: underline;
+}
 .activeLink {
   text-decoration: underline;
 }

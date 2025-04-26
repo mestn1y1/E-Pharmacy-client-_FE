@@ -8,6 +8,17 @@
   color: #1d1e21;
 }
 
+.text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  color: #59b17a;
+  margin-top: 200px;
+}
+.link {
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 768px) {
   .cartPage {
     padding: 152px 32px;

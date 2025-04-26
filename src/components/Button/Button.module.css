@@ -7,4 +7,9 @@
   line-height: 129%;
   color: #fff;
   background: #59b17a;
+  transition: var(--butonAnimation);
+}
+
+.btn:hover {
+  background: #3f945f;
 }

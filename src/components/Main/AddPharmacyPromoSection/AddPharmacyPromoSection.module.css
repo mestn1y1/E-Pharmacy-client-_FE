@@ -46,6 +46,11 @@
   line-height: 129%;
   color: #f1f1f1;
   margin-bottom: 40px;
+  transition: var(--borderAnimation);
+}
+
+.btn:hover {
+  border: 2px solid rgba(241, 241, 241, 0.5);
 }
 @media screen and (min-width: 375px) {
   .container {

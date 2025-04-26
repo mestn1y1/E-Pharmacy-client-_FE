@@ -10,6 +10,7 @@ export default function FooterBottom() {
       </li>
       <li className={css.text}>
         <a
+          className={css.linkText}
           href="https://www.termsfeed.com/live/c7932450-cd4e-45ec-8f32-276829380df7"
           target="_blank"
           rel="noopener noreferrer"
@@ -19,6 +20,7 @@ export default function FooterBottom() {
       </li>
       <li className={css.text}>
         <a
+          className={css.linkText}
           href="https://www.termsfeed.com/live/18e3508a-4358-4a31-a4f6-96b3d1e203cc"
           target="_blank"
           rel="noopener noreferrer"

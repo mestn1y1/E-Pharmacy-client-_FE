@@ -36,8 +36,12 @@
 
 .btn {
   margin-top: 10px;
+  transition: var(--butonAnimation);
 }
 
+.btn:hover {
+  background: #3f945f;
+}
 @media screen and (min-width: 768px) {
   .form {
     margin-top: 54px;

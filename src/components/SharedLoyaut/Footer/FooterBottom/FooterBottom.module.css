@@ -28,6 +28,10 @@
   content: none;
 }
 
+.linkText:hover {
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 768px) {
   .footerLinks {
     margin: 0 auto;

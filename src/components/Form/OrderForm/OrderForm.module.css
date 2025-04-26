@@ -135,6 +135,11 @@
   padding: 13px 32px;
   width: 141px;
   height: 44px;
+  transition: var(--butonAnimation);
+}
+
+.btn:hover {
+  background: #3f945f;
 }
 
 @media screen and (min-width: 768px) {
