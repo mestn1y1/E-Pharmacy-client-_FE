@@ -73,6 +73,12 @@
   letter-spacing: -0.05em;
   text-align: center;
   color: #e85050;
+  transition: var(--butonAnimation), var(--colorTextAnimation);
+}
+
+.btn:hover {
+  background: #e85050;
+  color: #fff;
 }
 
 @media screen and (min-width: 375px) {

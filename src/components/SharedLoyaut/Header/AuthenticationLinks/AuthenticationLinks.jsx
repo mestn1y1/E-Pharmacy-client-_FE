@@ -5,6 +5,7 @@ import { logOut } from "../../../../redux/auth/operations";
 
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
+import UserInfo from "../UserInfo/UserInfo";
 export default function AuthenticationLinks({ onLinkClick }) {
   const { isLoggedIn } = useAuth();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
@@ -27,18 +28,21 @@ export default function AuthenticationLinks({ onLinkClick }) {
   return (
     <>
       {isLoggedIn ? (
-        <button
-          className={
-            isMobile
-              ? css.logOutBtnHome
-              : isHome
-              ? css.logOutBtnHome
-              : css.logOutBtn
-          }
-          onClick={handleLogOut}
-        >
-          Log out
-        </button>
+        <div className={css.infoWrap}>
+          {!isMobile && <UserInfo />}
+          <button
+            className={
+              isMobile
+                ? css.logOutBtnHome
+                : isHome
+                ? css.logOutBtnHome
+                : css.logOutBtn
+            }
+            onClick={handleLogOut}
+          >
+            Log out
+          </button>
+        </div>
       ) : (
         <ul className={css.authList}>
           {authLinks.map(({ to, label }) => (
