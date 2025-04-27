@@ -60,13 +60,13 @@ export default function MedicinePage() {
       ) : (
         <>
           <ProductList items={products} />{" "}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            setCurrentPage={setCurrentPage}
+          />
         </>
       )}
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        setCurrentPage={setCurrentPage}
-      />
     </section>
   );
 }

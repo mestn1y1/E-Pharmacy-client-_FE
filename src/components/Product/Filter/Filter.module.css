@@ -17,6 +17,12 @@
   background: #fff;
   padding: 13px;
   padding-right: 40px;
+  transition: var(--borderAnimation);
+}
+
+.input:hover,
+.input:focus {
+  border-color: #59b17a;
 }
 
 .input::placeholder {
