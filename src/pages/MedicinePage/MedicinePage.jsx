@@ -7,6 +7,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import css from "./MedicinePage.module.css";
 import { useProducts } from "../../hooks/useProducts";
 import Filter from "../../components/Product/Filter/Filter";
+import { useLocation } from "react-router-dom";
 
 export default function MedicinePage() {
   const dispatch = useDispatch();
@@ -17,19 +18,36 @@ export default function MedicinePage() {
     category: "",
   });
 
-  useEffect(() => {
-    dispatch(fetchProducts({ page: currentPage, ...filters }));
-  }, [dispatch, currentPage, filters]);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const discount = queryParams.get("discount");
 
+  useEffect(() => {
+    const filtersWithDiscount = discount ? { ...filters, discount } : filters;
+
+    dispatch(fetchProducts({ page: currentPage, ...filtersWithDiscount }));
+  }, [dispatch, currentPage, filters, discount]);
   const handleFilter = (newFilters) => {
     setFilters(newFilters);
+    setCurrentPage(1);
+  };
+
+  const handleResetDiscount = () => {
+    setFilters((prevFilters) => {
+      const { discount, ...restFilters } = prevFilters;
+      return restFilters;
+    });
     setCurrentPage(1);
   };
 
   return (
     <section className={css.medicinePage}>
       <h1 className={css.title}>Medicine</h1>
-      <Filter onFilter={handleFilter} />
+      <Filter
+        onFilter={handleFilter}
+        handleResetDiscount={handleResetDiscount}
+        discount={discount}
+      />
 
       {isLoading && <p className={css.loadingText}>Products are loading...</p>}
 

@@ -11,6 +11,12 @@
   height: 44px;
   background: #fff;
   padding: 14px;
+  transition: var(--borderAnimation);
+}
+
+.input:hover,
+.input:focus {
+  border-color: #59b17a;
 }
 
 .input::placeholder {
@@ -20,6 +26,19 @@
   color: rgba(29, 30, 33, 0.4);
 }
 
+.inputContainer {
+  position: relative;
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  padding: 0 10px;
+  width: 100%;
+}
 .link {
   margin-top: 4px;
   font-weight: 400;

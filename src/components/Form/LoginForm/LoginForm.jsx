@@ -6,15 +6,13 @@ import { useDispatch } from "react-redux";
 import { logIn } from "../../../redux/auth/operations.js";
 import { Button } from "../../Button/Button.jsx";
 import { Link, useNavigate } from "react-router";
-import { fetchCartItems } from "../../../redux/cart/operations.js";
 import { toast } from "react-toastify";
-import { useAuth } from "../../../hooks/useAuth.jsx";
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email("Невірний email").required("Обов'язкове поле"),
+  email: Yup.string().email("Invalid email").required("This field is required"),
   password: Yup.string()
-    .min(8, "Пароль має містити щонайменше 8 символів")
-    .required("Обов'язкове поле"),
+    .min(8, "Password must contain at least 8 characters")
+    .required("This field is required"),
 });
 
 export default function LoginForm({
@@ -28,7 +26,6 @@ export default function LoginForm({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
   const onSubmit = async (values) => {
     try {
       const response = await dispatch(logIn(values)).unwrap();
@@ -50,22 +47,22 @@ export default function LoginForm({
       onSubmit={onSubmit}
     >
       <Form className={clsx(css.form, classNameForm)}>
-        <div>
+        <div className={css.inputContainer}>
           <Field
             type="email"
             name="email"
             className={clsx(css.input, classNameInput)}
           />
-          <ErrorMessage name="email" component="div" />
+          <ErrorMessage name="email" component="div" className={css.error} />
         </div>
 
-        <div>
+        <div className={css.inputContainer}>
           <Field
             type="password"
             name="password"
             className={clsx(css.input, classNameInput)}
           />
-          <ErrorMessage name="password" component="div" />
+          <ErrorMessage name="password" component="div" className={css.error} />
         </div>
 
         <Button

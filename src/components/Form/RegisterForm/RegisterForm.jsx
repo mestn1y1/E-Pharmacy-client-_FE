@@ -50,44 +50,44 @@ export default function RegisterForm({
       onSubmit={onSubmit}
     >
       <Form className={clsx(css.form, classNameForm)}>
-        <div>
+        <div className={css.inputWrapper}>
           <Field
             type="text"
             name="name"
             placeholder="User name"
             className={clsx(css.input, classNameInput)}
           />
-          <ErrorMessage name="name" component="div" />
+          <ErrorMessage name="name" component="div" className={css.error} />
         </div>
 
-        <div>
+        <div className={css.inputWrapper}>
           <Field
             type="email"
             name="email"
             placeholder="Email address"
             className={clsx(css.input, classNameInput)}
           />
-          <ErrorMessage name="email" component="div" />
+          <ErrorMessage name="email" component="div" className={css.error} />
         </div>
 
-        <div>
+        <div className={css.inputWrapper}>
           <Field
             type="text"
             name="phone"
             placeholder="Phone number"
             className={clsx(css.input, classNameInput)}
           />
-          <ErrorMessage name="phone" component="div" />
+          <ErrorMessage name="phone" component="div" className={css.error} />
         </div>
 
-        <div>
+        <div className={css.inputWrapper}>
           <Field
             type="password"
             name="password"
             placeholder="Password"
             className={clsx(css.input, classNameInput)}
           />
-          <ErrorMessage name="password" component="div" />
+          <ErrorMessage name="password" component="div" className={css.error} />
         </div>
 
         <div className={clsx(css.btnWrap, classNameBtnWrap)}>

@@ -42,12 +42,33 @@
   height: 44px;
   padding: 14px;
   margin-bottom: 12px;
+  transition: var(--borderAnimation);
 }
+
+.input:hover,
+.input:focus {
+  border-color: #59b17a;
+}
+
 .input::placeholder {
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
   color: rgba(29, 30, 33, 0.6);
+}
+
+.wrapInput {
+  position: relative;
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  padding: 0 10px;
+  width: 100%;
 }
 
 .line {

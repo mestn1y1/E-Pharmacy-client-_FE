@@ -81,7 +81,7 @@ export default function OrderForm() {
                 className={css.input}
                 placeholder="Enter text"
               />
-              <ErrorMessage name="name" component="div" />
+              <ErrorMessage name="name" component="div" className={css.error} />
             </div>
 
             <div className={css.wrapInput}>
@@ -95,7 +95,11 @@ export default function OrderForm() {
                 className={css.input}
                 placeholder="Enter text"
               />
-              <ErrorMessage name="email" component="div" />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className={css.error}
+              />
             </div>
 
             <div className={css.wrapInput}>
@@ -109,7 +113,11 @@ export default function OrderForm() {
                 className={css.input}
                 placeholder="Enter text"
               />
-              <ErrorMessage name="phone" component="div" />
+              <ErrorMessage
+                name="phone"
+                component="div"
+                className={css.error}
+              />
             </div>
             <div className={css.wrapInput}>
               <label htmlFor="shippingAddress" className={css.label}>
@@ -122,7 +130,11 @@ export default function OrderForm() {
                 className={css.input}
                 placeholder="Enter text"
               />
-              <ErrorMessage name="shippingAddress" component="div" />
+              <ErrorMessage
+                name="shippingAddress"
+                component="div"
+                className={css.error}
+              />
             </div>
           </div>
           <Field type="hidden" name="totalAmount" />
