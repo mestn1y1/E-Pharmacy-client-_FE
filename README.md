@@ -32,4 +32,4 @@ This is the frontend application for an online pharmacy platform, allowing users
 ---
 
 ⚙️ Backend API
-The backend API powers this frontend application. To test the API and explore available endpoints, you can use Swagger UI at: e-pharmacy-client-be.onrender.com/api-docs.
+The backend API powers this frontend application. To test the API and explore available endpoints, you can use Swagger UI at:  [SwaggerDocs](https://e-pharmacy-client-be.onrender.com/api-docs).
