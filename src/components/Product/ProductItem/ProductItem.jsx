@@ -10,9 +10,10 @@ import { addToCart, updateCartItem } from "../../../redux/cart/operations";
 import AuthModal from "../../Modals/AuthModal/AuthModal";
 import { ModalWrap } from "../../Modals/ModalWrap/ModalWrap";
 import { useCart } from "../../../hooks/useCart";
+import { toast } from "react-toastify";
 
 export default function ProductItem({ item }) {
-  const { photo, price, name, category, _id } = item;
+  const { photo, price, name, category, _id, discount } = item;
   const { isLoggedIn } = useAuth();
   const { cartItems } = useCart();
   const [modalAuthOpen, setAuthModalOpen] = useState(false);
@@ -23,7 +24,6 @@ export default function ProductItem({ item }) {
       navigate("/medicine/product");
     });
   };
-
   const addedToCart = () => {
     if (!isLoggedIn) {
       setAuthModalOpen(true);
@@ -41,8 +41,10 @@ export default function ProductItem({ item }) {
           quantity: (existingItem.quantity || 1) + 1,
         })
       );
+      toast.info("Item quantity updated in the cart!");
     } else {
       dispatch(addToCart({ productId: _id }));
+      toast.success("Item added to cart!");
     }
   };
 
@@ -54,6 +56,9 @@ export default function ProductItem({ item }) {
           {name}
           <span>₴{price}</span>
         </h2>
+        <p className={css.discount}>
+          Discount : <span>{discount}%</span>
+        </p>
         <p className={css.text}>{category}</p>
         <div className={css.btnBlock}>
           <Button

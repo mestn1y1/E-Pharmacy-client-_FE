@@ -7,6 +7,8 @@ import { logIn } from "../../../redux/auth/operations.js";
 import { Button } from "../../Button/Button.jsx";
 import { Link, useNavigate } from "react-router";
 import { fetchCartItems } from "../../../redux/cart/operations.js";
+import { toast } from "react-toastify";
+import { useAuth } from "../../../hooks/useAuth.jsx";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Невірний email").required("Обов'язкове поле"),
@@ -26,12 +28,20 @@ export default function LoginForm({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  
   const onSubmit = async (values) => {
     try {
-      await dispatch(logIn(values)).unwrap();
+      const response = await dispatch(logIn(values)).unwrap();
+      const userName = response.data.user.name;
+
       navigate("/medicine");
-      onClose();
-    } catch (err) {}
+      if (onClose) {
+        onClose();
+      }
+      toast.success(`Welcome back, ${userName}!`);
+    } catch (err) {
+      toast.error(`Something went wrong: ${err.message || err}`);
+    }
   };
   return (
     <Formik

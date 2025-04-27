@@ -11,7 +11,6 @@ import Filter from "../../components/Product/Filter/Filter";
 export default function MedicinePage() {
   const dispatch = useDispatch();
   const { isLoading, products, totalPages } = useProducts();
-
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
     name: "",

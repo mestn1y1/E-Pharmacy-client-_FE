@@ -3,6 +3,7 @@ import css from "./CartItem.module.css";
 import { Icons } from "../../Icons/Icons";
 import { deleteCartItem, updateCartItem } from "../../../redux/cart/operations";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 export default function CartItem({ product, quantity }) {
   const [itemQuantity, setItemQuantity] = useState(quantity);
@@ -13,6 +14,7 @@ export default function CartItem({ product, quantity }) {
     const newQuantity = itemQuantity + 1;
     setItemQuantity(newQuantity);
     dispatch(updateCartItem({ productId: _id, quantity: newQuantity }));
+    toast.info(`Quantity increased to ${newQuantity}`);
   };
 
   const handleDecrease = () => {
@@ -20,11 +22,15 @@ export default function CartItem({ product, quantity }) {
       const newQuantity = itemQuantity - 1;
       setItemQuantity(newQuantity);
       dispatch(updateCartItem({ productId: _id, quantity: newQuantity }));
+      toast.info(`Quantity decreased to ${newQuantity}`);
+    } else {
+      toast.warn("Quantity cannot be less than 1");
     }
   };
 
   const handleRemove = () => {
     dispatch(deleteCartItem(_id));
+    toast.success("Item removed from cart");
   };
 
   return (

@@ -6,6 +6,7 @@ import { logOut } from "../../../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import UserInfo from "../UserInfo/UserInfo";
+import { toast } from "react-toastify";
 export default function AuthenticationLinks({ onLinkClick }) {
   const { isLoggedIn } = useAuth();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
@@ -22,7 +23,10 @@ export default function AuthenticationLinks({ onLinkClick }) {
   const handleLogOut = () => {
     dispatch(logOut());
     navigate("/home");
-    onLinkClick();
+    if (onLinkClick) {
+      onLinkClick();
+    }
+    toast.success("You have successfully logged out!");
   };
 
   return (

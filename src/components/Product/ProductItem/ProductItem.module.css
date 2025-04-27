@@ -20,6 +20,15 @@
   margin-bottom: 4px;
 }
 
+.discount {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  color: #1d1e21;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
 .text {
   font-weight: 400;
   font-size: 12px;

@@ -6,7 +6,7 @@ import { Button } from "../../Button/Button";
 import { Icons } from "../../Icons/Icons";
 import css from "./ProductOverview.module.css";
 import { useDispatch } from "react-redux";
-
+import { toast } from "react-toastify";
 export default function ProductOverview() {
   const { product } = useProducts();
   const { photo, name, price, suppliers, stock, category, _id } = product;
@@ -36,8 +36,10 @@ export default function ProductOverview() {
           quantity: existingItem.quantity + count,
         })
       );
+      toast.info(`Item quantity updated to ${existingItem.quantity + count}`);
     } else {
       dispatch(addToCart({ productId: _id, quantity: count }));
+      toast.success(`${count} items added to cart!`);
     }
   };
 

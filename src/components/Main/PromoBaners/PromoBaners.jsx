@@ -3,15 +3,14 @@ import css from "./PromoBaners.module.css";
 export default function PromoBaners({ isLoggedIn, onShowModal }) {
   const navigate = useNavigate();
 
-  const handleClick = (e) => {
+  const handleClick = (e, discount) => {
     e.preventDefault();
     if (isLoggedIn) {
-      navigate("/medicine");
+      navigate(`/medicine?discount=${discount}`);
     } else {
       onShowModal();
     }
   };
-
   return (
     <ul className={css.banersList}>
       <li className={css.banersItem}>
@@ -21,7 +20,7 @@ export default function PromoBaners({ isLoggedIn, onShowModal }) {
         </div>
         <div className={css.flexWrapSecond}>
           <p className={css.bunerPercent}>70%</p>
-          <button onClick={handleClick} className={css.bunerBtn}>
+          <button onClick={(e) => handleClick(e, 70)} className={css.bunerBtn}>
             Shop now
           </button>
         </div>
@@ -45,7 +44,7 @@ export default function PromoBaners({ isLoggedIn, onShowModal }) {
         </div>
         <div className={css.flexWrapSecond}>
           <p className={css.bunerPercent}>35%</p>
-          <button onClick={handleClick} className={css.bunerBtn}>
+          <button onClick={(e) => handleClick(e, 35)} className={css.bunerBtn}>
             Shop now
           </button>
         </div>

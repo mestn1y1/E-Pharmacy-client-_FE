@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { register } from "../../../redux/auth/operations.js";
 import { Button } from "../../Button/Button.jsx";
 import { Link } from "react-router";
+import { toast } from "react-toastify";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -31,11 +32,17 @@ export default function RegisterForm({
 }) {
   const dispatch = useDispatch();
 
-  const onSubmit = (values) => {
-    dispatch(register(values)).unwrap();
-    onClose();
+  const onSubmit = async (values) => {
+    try {
+      await dispatch(register(values)).unwrap();
+      if (onClose) {
+        onClose();
+      }
+      toast.success("Welcome to pharmacy shop!");
+    } catch (error) {
+      toast.error(`Something went wrong: ${error.message || error}`);
+    }
   };
-
   return (
     <Formik
       initialValues={{ name: "", email: "", password: "", phone: "" }}

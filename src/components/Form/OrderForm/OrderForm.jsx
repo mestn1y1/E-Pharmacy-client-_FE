@@ -4,8 +4,32 @@ import { Button } from "../../Button/Button";
 import css from "./OrderForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { checkoutCart } from "../../../redux/cart/operations";
+import { toast } from "react-toastify";
+import * as Yup from "yup";
 
 export default function OrderForm() {
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .min(3, "Name must be at least 3 characters long")
+      .max(50, "Name must be less than 50 characters")
+      .required("Name is required"),
+
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required"),
+
+    phone: Yup.string()
+      .matches(/^\+?[1-9]\d{1,14}$/, "Phone number is not valid")
+      .required("Phone number is required"),
+
+    shippingAddress: Yup.string()
+      .min(5, "Address must be at least 5 characters long")
+      .required("Shipping address is required"),
+
+    paymentMethod: Yup.string()
+      .oneOf(["Cash On Delivery", "Bank"], "Invalid payment method")
+      .required("Payment method is required"),
+  });
   const { cartItems } = useCart();
   const totalAmount = cartItems.reduce((sum, { price, quantity }) => {
     return parseFloat((sum + price * quantity).toFixed(2));
@@ -20,15 +44,21 @@ export default function OrderForm() {
   };
 
   const dispatch = useDispatch();
-  const handleSubmit = (values, actions) => {
-    dispatch(checkoutCart(values));
-    actions.formReset();
+  const handleSubmit = (values) => {
+    dispatch(checkoutCart(values))
+      .then(() => {
+        toast.success("Checkout successful! A manager will contact you soon.");
+      })
+      .catch(() => {
+        toast.error("Checkout failed. Please try again.");
+      });
   };
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
+      validationSchema={validationSchema}
       enableReinitialize
     >
       {() => (
