@@ -12,6 +12,10 @@
   font-size: 16px;
   line-height: 140%;
   color: #1d1e21;
+  width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .addressBlock {

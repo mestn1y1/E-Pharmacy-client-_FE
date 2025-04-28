@@ -1,0 +1,59 @@
+.notFound {
+  padding: 120px 20px;
+  background: #59b17a;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title span {
+  font-size: 110px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.6s ease;
+}
+.img:hover {
+  transform: rotate(360deg);
+}
+.description {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: #59b17a;
+  width: 150px;
+  margin: 0 auto;
+  background: #dbe4de;
+  border-radius: 24px;
+  padding: 10px;
+  transition: background-color 250ms ease, transform 250ms ease,
+    color 250ms ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #bfeece;
+  transform: scale(1.05);
+  color: #48a16b;
+}

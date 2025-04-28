@@ -28,14 +28,9 @@ export default function MedicinePage() {
     dispatch(fetchProducts({ page: currentPage, ...filtersWithDiscount }));
   }, [dispatch, currentPage, filters, discount]);
   const handleFilter = (newFilters) => {
-    setFilters(newFilters);
-    setCurrentPage(1);
-  };
-
-  const handleResetDiscount = () => {
-    setFilters((prevFilters) => {
-      const { discount, ...restFilters } = prevFilters;
-      return restFilters;
+    setFilters({
+      ...newFilters,
+      discount: queryParams.set(""),
     });
     setCurrentPage(1);
   };
@@ -43,11 +38,7 @@ export default function MedicinePage() {
   return (
     <section className={css.medicinePage}>
       <h1 className={css.title}>Medicine</h1>
-      <Filter
-        onFilter={handleFilter}
-        handleResetDiscount={handleResetDiscount}
-        discount={discount}
-      />
+      <Filter onFilter={handleFilter} />
 
       {isLoading && <p className={css.loadingText}>Products are loading...</p>}
 
