@@ -28,10 +28,7 @@ export default function MedicinePage() {
     dispatch(fetchProducts({ page: currentPage, ...filtersWithDiscount }));
   }, [dispatch, currentPage, filters, discount]);
   const handleFilter = (newFilters) => {
-    setFilters({
-      ...newFilters,
-      discount: queryParams.set(""),
-    });
+    setFilters(newFilters);
     setCurrentPage(1);
   };
 
