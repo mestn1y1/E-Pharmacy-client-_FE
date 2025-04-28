@@ -31,14 +31,5 @@ This is the frontend application for an online pharmacy platform, allowing users
 
 ---
 
-## 📁 Project Structure
-
-```bash
-E-Pharmacy-client-_FE/
-├── components/    # Reusable UI components
-├── features/      # Redux slices and logic for specific features
-├── pages/         # Pages corresponding to routes
-├── services/      # API service modules
-├── utils/         # Helper functions and constants
-└── assets/        # Images and static resources
-```
+⚙️ Backend API
+The backend API powers this frontend application. To test the API and explore available endpoints, you can use Swagger UI at:  [SwaggerDocs](https://e-pharmacy-client-be.onrender.com/api-docs).
