@@ -33,3 +33,5 @@ This is the frontend application for an online pharmacy platform, allowing users
 
 ⚙️ Backend API
 The backend API powers this frontend application. To test the API and explore available endpoints, you can use Swagger UI at:  [SwaggerDocs](https://e-pharmacy-client-be.onrender.com/api-docs).
+
+[Mockup](https://www.figma.com/file/qrKzOBVqM6zOZNFkTOpEO0/E-PHARMACY-(clients)?type=design&node-id=0-1&mode=design&t=O9kTuPJAS2bjEuwM-0) and [technical specification](https://docs.google.com/spreadsheets/d/1TdZTkbTSEcscopFAAH1XiiAbkP8IOawIugpvaG9xnuw/edit?gid=0#gid=0)
