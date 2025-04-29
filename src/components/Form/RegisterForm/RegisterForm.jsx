@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
     .required("This field is required"),
   phone: Yup.string()
     .matches(/^\+?[0-9\s\-()]*$/, "Invalid phone number")
-    .nullable(), // разрешаем null или пустую строку
+    .nullable(),
 });
 
 export default function RegisterForm({
