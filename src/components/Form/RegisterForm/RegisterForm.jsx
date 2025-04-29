@@ -19,6 +19,9 @@ const validationSchema = Yup.object().shape({
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
     .required("This field is required"),
+  phone: Yup.string()
+    .matches(/^\+?[0-9\s\-()]*$/, "Invalid phone number")
+    .nullable(), // разрешаем null или пустую строку
 });
 
 export default function RegisterForm({
